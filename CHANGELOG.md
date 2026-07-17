@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to the "InventoryApp" will be documented in this file.
 
@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-prealpha] - 2026-07-17
 
+### Added
+- [START of the PROJECT]
+- Initial project setup and configuration.
 
 [unreleased]: https://github.com/filippochinni/inventory-app/commits/main/HEAD
 [@filippochinni]: https://github.com/filippochinni
