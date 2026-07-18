@@ -155,6 +155,31 @@ The most important section of the Requirements Document is the list of Functiona
 
 The full details of the Requirements Phase are in the [Requirements Document](documents/Requirements.md).
 
+### Traceability - Requirements
+
+```
+Problems --> User Stories (1:N)
+```
+Although this is not a strict and rigorous mapping, usually one Problem generates one or multiple Needs (User Stories).
+```
+User Stories --> Functional Requirements (1:0|N)
+Functional Requirements <-- User Stories (1:0|N)
+```
+Usually one User Story generates one or multiple Functional Requirements.
+Sometimes a User Story might be reinterpreted or merged with another one, thus remaining without a respective Functional Requirement.
+At the same time, some Requirements might arise from implicit needs not expressed explicitly in the User Stories.
+```
+Functional Requirements --> Use Cases (1:0|1)
+User Cases <-- Functional Requirements (1:1|N)
+```
+A Use Case can sometime group multiple Functional Requirements.
+```
+Use Cases --> Scenarios (1:N)
+```
+A Use Case always needs its Nominal Scenario and can also have multiple Alternative Scenarios (Variants and Exceptions).
+
+**Traceability at Requirements Level is non-rigorous from Problems to Functional Requirements, half-rigorous from Functional Requirements to Use Cases, and starts to be rigorous from Use Cases to Scenarios.**
+
 ## Design
 
 ### System Architecture Design

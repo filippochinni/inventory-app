@@ -1,12 +1,12 @@
 # Requirements Document - InventoryApp
 
-Date: 2026-07-17
+Date: 2026-07-18
 
 Version: v1 - Requirements Analysis for InventoryApp
 
-| Version | Curr App Version | Curr Milestone | Change | 
+| Version | Curr App Version | Curr Milestone | Change |
 |:-------:|:-----------------|:---------------|:-------|
-|   v1    | v0.1.0-prealpha  | Requirements   | -      |
+|   v1    | v0.1.0-alpha     | Requirements   | -      |
 
 #### Contents
 
@@ -17,11 +17,11 @@ Version: v1 - Requirements Analysis for InventoryApp
 	* [Requirements Elicitation](#requirements-elicitation)
 		+ [Personas](#personas)
 		+ [Problems](#problems)
-		+ [User Stories](#user-stories)
+		+ [User Stories](#needs-user-stories)
 	* [Context](#context)
 		+ [Actors](#actors)
-		+ [Actors Interfaces](#system-access-interfaces)
 		+ [Context Diagram](#context-diagram)
+		+ [System Interaction Interfaces](#system-interaction-interfaces)
 	* [Requirements](#requirements)
 		+ [Functional Requirements](#functional-requirements)
 			- [Table of Rights](#table-of-rights)
@@ -62,7 +62,7 @@ __Freemium__: InventoryApp could be released as a free app with basic features, 
 
 __Adware__: InventoryApp could be released as a free app with and display ads to the user, with the possibility of removing ads through payment, combining with other business models.
 
-__Commissioning__: InventoryApp could be proposed to a particular client while in early development, and be commissioned to be developed ad-hoc for that particular client.
+__Commissioning__: InventoryApp could be proposed to a particular client while in early development, and be commissioned to be developed ad-hoc for that specific client.
 
 ## Stakeholders
 
@@ -119,32 +119,118 @@ He works in a warehouse and his tired to be handled a printed list of items to b
 | Decentralized Inventory | Both in personal and professional settings an Inventory is tied to a location and has a single access point |
 | Lack of Info on Items   | Most existing stocktaking systems for small and medium stores only store the item name                      |
 
-### User Stories
+### Needs (User Stories)
 
-| User Story ID | User Story Description |
-|:--------------|:-----------------------|
-| US1           | __As a__               |                
-|               | __I want to__          |              
-|               | __So that__            |
-| ------------- | ---------------------- |
-| US2           | __As a__               |                
-|               | __I want to__          |              
-|               | __So that__            |
-| ------------- | ---------------------- |
+User Stories are the translation of the Problems into Needs, they are still written informally and without using technical language, therefore they still cannot and should not be considered Requisites. 
+
+| User Story                        | User Story Description                                                    |
+|:----------------------------------|:--------------------------------------------------------------------------|
+| US1 - Store Item                  | __As a__ User                                                             |                
+|                                   | __I want to__ memorize an Item                                            |              
+|                                   | __So that__ I can track its existence                                     |
+| --------------------------        | -------------------------------------------------                         |
+| US2 - Store Item Location         | __As a__ User                                                             |                
+|                                   | __I want to__ memorize the main info of an Item (location, name, desc)    |              
+|                                   | __So that__ I can find it                                                 |
+| --------------------------        | -------------------------------------------------                         |
+| US3 - Store Item Details          | __As a__ User                                                             |                
+|                                   | __I want to__ memorize additional details of an Item                      |              
+|                                   | __So that__ I can remeber and visualize such info later                   |
+| --------------------------        | -------------------------------------------------                         |
+| US4 - Store Item Pictures         | __As a__ User                                                             |                
+|                                   | __I want to__ memorize one or more pictures of the item                   |              
+|                                   | __So that__ I can see the Item                                            |
+| --------------------------        | -------------------------------------------------                         |
+| US5 - Search Item                 | __As a__ User                                                             |                
+|                                   | __I want to__ search an Item                                              |              
+|                                   | __So that__ I can visualize it                                            |
+| --------------------------        | -------------------------------------------------                         |
+| US6 - Visualize Item              | __As a__ User                                                             |                
+|                                   | __I want to__ visualize all the info about on Item                        |              
+|                                   | __So that__ I can see its details                                         |
+| --------------------------        | -------------------------------------------------                         |
+| US7 - Apply Labels                | __As a__ User                                                             |                
+|                                   | __I want to__ apply one or more labels to an Item                         |              
+|                                   | __So that__ I can better categorize them                                  |
+| --------------------------        | -------------------------------------------------                         |
+| US8 - Create new Labels           | __As a__ User                                                             |                
+|                                   | __I want to__ create new Labels                                           |              
+|                                   | __So that__ I can use my own categoris on items                           |
+| --------------------------        | -------------------------------------------------                         |
+| US9 - Visualize Items by Location | __As a__ User                                                             |                
+|                                   | __I want to__ visualize a list of all the Items in a specific Location    |              
+|                                   | __So that__ I can know what Items a certain Location contains             |
+| --------------------------        | -------------------------------------------------                         |
+| US10 - Visualize Items by Labels  | __As a__ User                                                             |                
+|                                   | __I want to__ visualize a list of all the Items with specific Labels      |              
+|                                   | __So that__ I can the see the Items for each category                     |
+| --------------------------        | -------------------------------------------------                         |
+| US11 - Create Inventory           | __As a__ User                                                             |                
+|                                   | __I want to__ create new "Inventories"                                    |              
+|                                   | __So that__ I can have multiple "Inventories"                             |
+| --------------------------        | -------------------------------------------------                         |
+| US12 - Switch Inventory           | __As a__ User                                                             |                
+|                                   | __I want to__ switch between "Inventories"                                |              
+|                                   | __So that__ I can operate on a different Inventory                        |
+| --------------------------        | -------------------------------------------------                         |
+| US13 - Update Item                | __As a__ User                                                             |                
+|                                   | __I want to__ modify the details of an existing Item                      |              
+|                                   | __So that__ I can update the Item details                                 |
+| --------------------------        | -------------------------------------------------                         |
+| US14 - Delete Item                | __As a__ User                                                             |                
+|                                   | __I want to__ delete an Item from the Inventory                           |              
+|                                   | __So that__ I can stop tracking the Item                                  |
+| --------------------------        | -------------------------------------------------                         |
+| US15 - Archive Item               | __As a__ User                                                             |                
+|                                   | __I want to__ archive an Item without deleting it                         |              
+|                                   | __So that__ I can keep a memento of an old or sold Item                   |
+| --------------------------        | -------------------------------------------------                         |
+| US16 - Save Data Remotely         | __As a__ User                                                             |                
+|                                   | __I want to__ save the Inventories data remotely                          |              
+|                                   | __So that__ I can access data from other devices                          |
+| --------------------------        | -------------------------------------------------                         |
+| US17 - Export Data                | __As a__ User                                                             |                
+|                                   | __I want to__ export the Inventory data                                   |              
+|                                   | __So that__ I can backup it or share it                                   |
+| --------------------------        | -------------------------------------------------                         |
+| US18 - Import Data                | __As a__ User                                                             |                
+|                                   | __I want to__ import the Inventory data                                   |              
+|                                   | __So that__ I can import a backup or data shared to me                    |
+| --------------------------        | -------------------------------------------------                         |
+| US19 - Visualize Statistics       | __As a__ User                                                             |                
+|                                   | __I want to__ visualize some statistics about an Inventory                |              
+|                                   | __So that__ I can see global information about the Inventory              |
+| --------------------------        | -------------------------------------------------                         |
+| US20 - Search Item on the Web     | __As a__ User                                                             |                
+|                                   | __I want to__ search one of my items, either by name or image, on the web |              
+|                                   | __So that__ I can get additional info on it for knowledge or selling      |
+| --------------------------        | -------------------------------------------------                         |
 
 ## Context
 
 ### Actors
 
-| Actor Name | Description |
-|:-----------|:------------|
+From Problems and Needs, no particular differences between types of users can be identified, therefore the only Actor is the User.
+Every User access the same functionalities, with the same privileges, and with the same interfaces.
 
-### System Access Interfaces
+Actors will still be analyzed in the rest of the Requirements Document in case of evolution of the App (for example distinction between free and paid users in the case of Freemium business model).
 
-| Actor | Logical Interface | Physical Interface |
-|:------|:-----------------:|:------------------:|
+| Actor Name | Description             |
+|:-----------|:------------------------|
+| BaseUser   | Anyone who uses the App |
 
 ### Context Diagram
+
+In the case of a system with a single Actor, the Context Diagram is trivial as there is only one external entity which interacts with the system.
+
+![Context Diagram](./_res/Context_Diagram.png)
+
+### System Interaction Interfaces
+
+| Actor    | Logical Interface | Physical Interface |
+|:---------|:-----------------:|:------------------:|
+| BaseUser |        GUI        |     Smartphone     |
+
 
 ## Requirements
 
@@ -162,8 +248,10 @@ He works in a warehouse and his tired to be handled a printed list of items to b
 
 The possible types of Non-Functional Requirement are the following: Correctness, Usability, Efficiency, Reliability, Maintainability, Portability, Security, Safety, Interoperability, Ethical, Standard, Privacy, Domain.
 
-| ID | Type | Description | Refers to |
-|:--:|:-----|:------------|:---------:|
+|  ID  | Type      | Description                           | Refers to |
+|:----:|:----------|:--------------------------------------|:---------:|
+| NFR1 | Domain    | The App must support Italian language |     -     |
+| NFR2 | Usability | The App has a Dark Mode               |     -     |
 
 ## Use Cases
 
@@ -215,6 +303,18 @@ The possible types of Non-Functional Requirement are the following: Correctness,
 ## Glossary
 
 ### Glossary Terms
+
+| Term               | Description                                                                         | Synonyms              |
+|:-------------------|:------------------------------------------------------------------------------------|:----------------------|
+| __Inventory__      | A collection of Items indentified by Sites, Spots, Containers                       |                       |
+| __Site__           | A physical place, like a building, a sector of a builing, or an appartment          |                       | 
+| __Spot__           | A physical, more precise, place, like a drawer, bookshelf or warehouse shelf        |                       |
+| __Container__      | An entity that can cointain Items, or whatever object that can cointain other Items |                       |
+| __Item__           | An atomic piece of possession (good, material, object)                              | Object, Things, Stuff |
+| __Location__       | Full path of a Location of an Item (Site>[Spots]>[Containers]>Item)                 |                       |
+| __AbstractObject__ | Abstract entity, meaning either a Item or a Container                               |                       |
+| __Track/Tracked__  | To add to an Inventory / To be actively part of an Inventory                        | Store, Memorize       |
+| __Stocktaking__    | The physical activity of tracking or counting materials or goods                    | Inventory, Stock      |
 
 ### Glossary Diagram
 
