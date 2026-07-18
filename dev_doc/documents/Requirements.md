@@ -81,12 +81,43 @@ Information collected informally during the Concept phase of the project. In thi
 
 ### Personas
 
+__Persona 1 - "Nonno"__:
+Man, Old, 93, Retired
+
+He owns an assorted collection of objects, large and small, tools and utensils, furniture and machinery, basically everything. He needs a fast way to track and catalog his items.
+
+__Persona 2 - "Filippo"__:
+Man, Young, 24, Student
+
+He has recently found his old collection of toys, soon he will have to move to a new apartment. He needs a way to catalog his items distinguishing between personal items, toys, clothes, etc.
+
+__Persona 3 - "Maria"__:
+Woman, Adult, 56, Professor
+
+She has a large collection of books, and she needs a way to catalog them and keep track of their location in her house.
+
+__Persona 4 - "Miriam"__:
+Woman, Adult, 40, Housewife
+
+She owns a large amount of clothes from her family, both old and currently in use. She wants to free the house from old stuff and an easy way to track and catalog clothes and other junk to be sold or donated.
+
+__Persona 5 - "John"__:
+Man, Adult, 35, Warehouse Worker
+
+He works in a warehouse and his tired to be handled a printed list of items to be stocked and moved. He would prefer a smarter solution.
 
 
 ### Problems
 
-| Problem | Description |
-|:--------|:------------|
+| Problem                 | Description                                                                                                 |
+|:------------------------|:------------------------------------------------------------------------------------------------------------|
+| Large amount of Items   | Some people own large amounts of assorted items                                                             |
+| Cannot find belongings  | People often forget where they put their things                                                             |
+| Unorganized Items       | Items are often stored without a precise orden an without any form of labeling                              |
+| Paper notes Stocktaking | Inventories written on pieces of paper can easily be lost or forgotten                                      |
+| Stocktaking is Boring   | Many people do not like writing inventories, mainly because is a slow process                               |
+| Decentralized Inventory | Both in personal and professional settings an Inventory is tied to a location and has a single access point |
+| Lack of Info on Items   | Most existing stocktaking systems for small and medium stores only store the item name                      |
 
 ### User Stories
 
