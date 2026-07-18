@@ -50,14 +50,38 @@ InventoryApp is a stock management (inventory, stock, stocktaking) Android appli
 
 ## Business Model
 
+There are multiple possible business models for InventoryApp.
+
+__Open Source__: InventoryApp could be released as an open-source project, publicly available and free to use and modify. With this model financial support could come from donations, enterprise licensing, paid technical support, hosting.
+
+__Proprietary Software__: InventoryApp could be released as a standard proprietary software, obtainable through a one-time purchase.
+
+__Software as a Service (SaaS)__: InventoryApp could be released as a subscription-based service, with a monthly or yearly fee to use the app.
+
+__Freemium__: InventoryApp could be released as a free app with basic features, and lock the full functionality behind a paywall, with a one-time purchase or a subscription model.
+
+__Adware__: InventoryApp could be released as a free app with and display ads to the user, with the possibility of removing ads through payment, combining with other business models.
+
+__Commissioning__: InventoryApp could be proposed to a particular client while in early development, and be commissioned to be developed ad-hoc for that particular client.
+
 ## Stakeholders
 
-| Stakeholder Name | Description                     |
-|:-----------------|:--------------------------------|
+| Stakeholder         | Description                                                                                                                                                |
+|:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| User (Generic)      | Private citizen who wishes to catalogate their personal proprieties to whatever purpose (selling, separation of propriety, stocktaking, house moving)      |
+| Small Businesses    | Owners of small commercial activities, like stores, who need a digitalized solution to manage their inventory and catalogate their goods                   |
+| Private Companies   | Companies with a Logistic Division, or in general with logistic necessities who needs a pocket solution usable by any worker at any time in the warehouses |
+| Compulsive Hoarders | Individuals who collect large quantities of unrelated items and need a way to categorize and track them                                                    |
+| Collectors          | Individuals who collect items of interest and need a way to organize their collections either for tidiness or for future selling                           |
+| Payment Service     | (If the App requires payment processing) The payment service for the purchase of the App license                                                           |
 
 ## Requirements Elicitation
 
+Information collected informally during the Concept phase of the project. In this section such intel is organized and partially formalized so that it can be used in the rest of the Requirements Engineering process.
+
 ### Personas
+
+
 
 ### Problems
 

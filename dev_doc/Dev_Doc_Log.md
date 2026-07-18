@@ -51,7 +51,7 @@ GitHub other than being the tool used for Distributed VCS (that is the Remote Re
 
 #### Issue Creation
 
-- `Title`: should summarize what item (whether it is a bug or a feature) the Issue is detailing
+- `Title`: should summarize what item (whatever type it is) the Issue is detailing
 - `Description`: describe what the Issue is meant to solve
 - `Assignee`: (for this project only myself)
 - `Labels`: to be defined in the ALM tool (see below)
@@ -63,7 +63,7 @@ _Labels_:
 - `documentation`: the Issue is about a Documentation item
 - `requirements`: the Issue is about a Requirement item
 - `design`: the Issue is about a Design item
-- `enancement`: the Issue is about an Enhancement (either in terms of code quality, UI/UX, or acceptance) of an existing item
+- `enhancement`: the Issue is about an Enhancement (either in terms of code quality, UI/UX, or acceptance) of an existing item
 - `idea`: the Issue is about an idea for a NEW feature
 
 _Milestones_:
@@ -121,9 +121,9 @@ the full Estimation Document was of course only compiled after the end of the Re
 
 Phase of the project where the ideas of the Apps are gathered and the general concept of what the App is meant to be is and meant to do is made clear.
 
-After the initial idea is in mind, in preparation for the Requirements Phase, some Requirement Elicitation processes were applied. Information propaedeutic to the Required Document was gathered. 
+After the initial idea is in mind, in preparation for the Requirements Phase, some Requirement Elicitation processes were applied. Information propaedeutic to the Requirements Document was gathered. 
 
-processes information about the type of client whom could be interested in the idea, and what problems they want to be resolved 
+Information was collected informally and gave intel about: business opportunities, possible type of Clients, problems the App is meant to solve.
 
 ## Requirements
 
