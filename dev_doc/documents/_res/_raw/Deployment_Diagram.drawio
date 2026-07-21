@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Pagina-1" id="5id-M1QgJewUYRfOAu2-">
-    <mxGraphModel dx="1001" dy="536" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1201" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -31,13 +31,18 @@
           <mxGeometry height="50" width="120" x="747" y="207" as="geometry" />
         </mxCell>
         <mxCell id="bCdegNqAHQcpsmAjFNLp-26" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;0..&lt;/font&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;*&lt;/font&gt;" vertex="1">
-          <mxGeometry height="40" width="50" x="607" y="205" as="geometry" />
+          <mxGeometry height="40" width="50" x="614" y="205" as="geometry" />
         </mxCell>
         <mxCell id="bCdegNqAHQcpsmAjFNLp-27" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;1&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="30" x="519" y="185" as="geometry" />
         </mxCell>
-        <mxCell id="bCdegNqAHQcpsmAjFNLp-30" edge="1" parent="1" source="bCdegNqAHQcpsmAjFNLp-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=120;entryDy=300;entryPerimeter=0;" target="bCdegNqAHQcpsmAjFNLp-17">
+        <mxCell id="bCdegNqAHQcpsmAjFNLp-30" edge="1" parent="1" source="bCdegNqAHQcpsmAjFNLp-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=120;entryDy=300;entryPerimeter=0;endArrow=none;endFill=0;" target="bCdegNqAHQcpsmAjFNLp-17">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="phiOQVXjqNtrasdXrK6I-2" connectable="0" parent="bCdegNqAHQcpsmAjFNLp-30" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="HTTPS" vertex="1">
+          <mxGeometry relative="1" x="0.0943" y="-2" as="geometry">
+            <mxPoint x="-5" y="-12" as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>

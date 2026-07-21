@@ -100,7 +100,7 @@ yearly fee to use the app.
 __Freemium__: InventoryApp could be released as a free app with basic features, and lock the full functionality behind a
 paywall, with a one-time purchase or a subscription model.
 
-__Adware__: InventoryApp could be released as a free app with and display ads to the user, with the possibility of
+__Adware__: InventoryApp could be released as a free app and display ads to the user, with the possibility of
 removing ads through payment, combining with other business models.
 
 __Commissioning__: InventoryApp could be proposed to a particular client while in early development, and be commissioned
@@ -182,7 +182,7 @@ technical language, therefore they still cannot and should not be considered Req
 | --------------------------        | -------------------------------------------------                         |
 | US3 - Store Item Details          | __As a__ User                                                             |                
 |                                   | __I want to__ memorize additional details of an Item                      |              
-|                                   | __So that__ I can remeber and visualize such info later                   |
+|                                   | __So that__ I can remember and visualize such info later                  |
 | --------------------------        | -------------------------------------------------                         |
 | US4 - Store Item Pictures         | __As a__ User                                                             |                
 |                                   | __I want to__ memorize one or more pictures of the item                   |              
@@ -193,7 +193,7 @@ technical language, therefore they still cannot and should not be considered Req
 |                                   | __So that__ I can visualize it                                            |
 | --------------------------        | -------------------------------------------------                         |
 | US6 - Visualize Item              | __As a__ User                                                             |                
-|                                   | __I want to__ visualize all the info about on Item                        |              
+|                                   | __I want to__ visualize all the info about an Item                        |              
 |                                   | __So that__ I can see its details                                         |
 | --------------------------        | -------------------------------------------------                         |
 | US7 - Apply Labels                | __As a__ User                                                             |                
@@ -419,16 +419,6 @@ In the case of a system with a single type of Actor, the Table of Rights is triv
 ![Use Cases Diagram](./_res/UseCases_Diagram.png)
 
 ## Use Cases
-
-| UC-1 - S1.1                           | Scenario 1.1: Use Case Name (Scenario Spec) |
-|:--------------------------------------|:--------------------------------------------|
-| Pre-condition                         |                                             |
-| Post-condition                        |                                             |
-| <div align="center"> __Step#__ </div> | <div align="center"> __Description__ </div> |
-| <div align="center"> 1 </div>         |                                             |
-| <div align="center"> 2 </div>         |                                             |
-| <div align="center"> 3 </div>         |                                             |
-| <div align="center"> 4 </div>         |                                             |
 
 ### Use Case 1.1 (UC-1.1): Create Inventory
 
@@ -1342,13 +1332,13 @@ In the case of a system with a single type of Actor, the Table of Rights is triv
 
 #### Scenario 5.4.1: Delete Item (Successful)
 
-| UC-5.4 - S5.4.1                       | Scenario 5.4.1: Delete Item (Successful)        |
-|:--------------------------------------|:------------------------------------------------|
-| Pre-condition                         | A parent entity is in focus; A Item is selected |
-| Post-condition                        | Item is deleted                                 |
-| <div align="center"> __Step#__ </div> | <div align="center"> __Description__ </div>     |
-| <div align="center"> 1 </div>         | _User_: requests to delete an Item              |
-| <div align="center"> 2 </div>         | _System_: deletes Item                          |
+| UC-5.4 - S5.4.1                       | Scenario 5.4.1: Delete Item (Successful)    |
+|:--------------------------------------|:--------------------------------------------|
+| Pre-condition                         | A parent entity is in focus; An is selected |
+| Post-condition                        | Item is deleted                             |
+| <div align="center"> __Step#__ </div> | <div align="center"> __Description__ </div> |
+| <div align="center"> 1 </div>         | _User_: requests to delete an Item          |
+| <div align="center"> 2 </div>         | _System_: deletes Item                      |
 
 ### Use Case 5.5 (UC-5.5): Move Item
 
@@ -2055,12 +2045,16 @@ In the case of a system with a single type of Actor, the Table of Rights is triv
 
 ## System Design Diagram
 
-In the case of a software-intensive App, the System Design is trivial, as the system component are all software
-components.
+In the case of a software-intensive App, the System Design is trivial, as the system components are all software
+components almost all inside the same developing environment.
 
 ![System Design Diagram](./_res/System_Design_Diagram.png)
 
 ## Deployment Diagram
+
+In the Requirements Engineering phase, the Deployment Diagram leaves some entities abstract and vague in order to avoid
+committing to a specific technology or implementation. The Deployment Diagram will be reproposed at the end of the
+Design phase, with more details and specific technologies.
 
 ![Deployment Diagram](./_res/Deployment_Diagram.png)
 
@@ -2068,29 +2062,29 @@ components.
 
 ### Glossary Terms
 
-| Term                   | Description                                                                                                                                 | Synonyms                     |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|
-| __Inventory__          | A collection of Items. Can include multiple Sites, Spots, Containers                                                                        |                              |
-| __Site__               | A physical place; like a building, a sector of a builing, or an appartment. Can have one or more Spots                                      |                              | 
-| __Spot__               | A physical, precise, place; like a drawer, bookshelf or warehouse shelf. Can have one or more Sub-Spots, or can have one or more Containers |                              |
-| __Container__          | An entity that can cointain Items, or whatever object that can cointain other Items (like other Containers)                                 |                              |
-| __Item__               | An atomic piece of possession (good, material, object)                                                                                      | Object, Things, Stuff        |
-| __Location__           | Path of a Location of an Item (Site>[Spots]>[Containers])                                                                                   | Path                         |
-| __Location Full Path__ | Full absolute path of an Item (Site>[Spots]>[Containers]>Item)                                                                              | Full Path                    |
-| __Details__            | General Term to indicate "additional fields of a <Entity>", where Entity is one of the Entities of the system                               | <Entity> Data, <Entity> Info |
-| __Item Details__       | Additional fields of an Item. Such as: Dimensions, Description, Value, Acquisition Date, Insert Date, Pictures, Quantity                    | Item Data, Item Info         |
-| __Pickable__           | Abstract entity, meaning either a Item or a Container, without referring to any in particular                                               |                              |
-| __Place__              | Abstact entity, meaning either a Site or a Spot, without referring to any in particular                                                     |                              |
-| __Track/Tracked__      | To add to an Inventory / To be actively part of an Inventory                                                                                | Store, Memorize              |
-| __Stocktaking__        | The physical activity of tracking or counting materials or goods                                                                            | Inventory, Stock             |
-| __Category__           | Category of an Item, not to be confused with Label. Category list is pre-defined                                                            | Main Category                |
-| __Label__              | Custom category of an Item. Labels can be defined and modified by the User                                                                  |                              |
-| __Legacy Item__        | Item that is no longer (in real life) part of an Inventory. Can be either Archived or Sold                                                  |                              |
-| __User__               | Any type of User, without referring to any in particular. In Scenarios, it referes to the actor subject of the Use Case                     |                              |
-| __StandardUser__       | Abstract entity, either a BaseUser or a Logged User, without referring to any in particular                                                 |                              |
-| __BaseUser__           | User, in particular a StandardUser who is not logged in                                                                                     |                              |
-| __LoggedUser__         | User, in particular a StandardUser who is logged in                                                                                         |                              |
-| __Data__               | If mentioned alone as a noun, means all the persistent data (All the Inventories)                                                           |                              |
+| Term                   | Description                                                                                                                                 | Synonyms                       |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|
+| __Inventory__          | A collection of Items. Can include multiple Sites, Spots, Containers                                                                        |                                |
+| __Site__               | A physical place; like a building, a sector of a builing, or an appartment. Can have one or more Spots                                      |                                | 
+| __Spot__               | A physical, precise, place; like a drawer, bookshelf or warehouse shelf. Can have one or more Sub-Spots, or can have one or more Containers |                                |
+| __Container__          | An entity that can contain Items, or whatever object that can contain other Items (like other Containers)                                   |                                |
+| __Item__               | An atomic piece of possession (good, material, object)                                                                                      | Object, Things, Stuff          |
+| __Location__           | Path of a Location of an Item (Site>[Spots]>[Containers])                                                                                   | Path                           |
+| __Location Full Path__ | Full absolute path of an Item (Site>[Spots]>[Containers]>Item)                                                                              | Full Path                      |
+| __Details__            | General Term to indicate "additional fields of a \<Entity>", where Entity is one of the Entities of the system                              | \<Entity> Data, \<Entity> Info |
+| __Item Details__       | Additional fields of an Item. Such as: Dimensions, Description, Value, Acquisition Date, Insert Date, Pictures, Quantity                    | Item Data, Item Info           |
+| __Pickable__           | Abstract entity, meaning either an Item or a Container, without referring to any in particular                                              |                                |
+| __Place__              | Abstact entity, meaning either a Site or a Spot, without referring to any in particular                                                     |                                |
+| __Track/Tracked__      | To add to an Inventory / To be actively part of an Inventory                                                                                | Store, Memorize                |
+| __Stocktaking__        | The physical activity of tracking or counting materials or goods                                                                            | Inventory, Stock               |
+| __Category__           | Category of an Item, not to be confused with Label. Category list is pre-defined                                                            | Main Category                  |
+| __Label__              | Custom category of an Item. Labels can be defined and modified by the User                                                                  |                                |
+| __Legacy Item__        | Item that is no longer (in real life) part of an Inventory. Can be either Archived or Sold                                                  |                                |
+| __User__               | Any type of User, without referring to any in particular. In Scenarios, it referes to the actor subject of the Use Case                     |                                |
+| __StandardUser__       | Abstract entity, either a BaseUser or a Logged User, without referring to any in particular                                                 |                                |
+| __BaseUser__           | User, in particular a StandardUser who is not logged in                                                                                     |                                |
+| __LoggedUser__         | User, in particular a StandardUser who is logged in                                                                                         |                                |
+| __Data__               | If mentioned alone as a noun, means all the persistent data (All the Inventories)                                                           |                                |
 
 ### Glossary Diagram
 
