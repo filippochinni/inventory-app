@@ -1,12 +1,10 @@
 # Project Estimation
 
-Date: 2026-07-17
+Project Estimation for InventoryApp
 
-Version: v1 - Project Estimation for InventoryApp
+Date Completed: 2026-07-21
 
-| Version | Curr App Version | Curr Milestone | Change | 
-|:-------:|:-----------------|:---------------|:-------|
-|   v1    | v0.1.0-prealpha  | Requirements   | -      |
+Date Last Update: 2026-07-21
 
 ### Estimation approach
 

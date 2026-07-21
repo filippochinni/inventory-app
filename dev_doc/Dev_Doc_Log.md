@@ -112,7 +112,7 @@ The Timesheet was updated daily during the whole development process, and it is 
 Time Estimation of the project and its phases: Three different Estimation Approaches were utilized: Estimation by Size, Estimation by Product Decomposition and Estimation by Activity Decomposition. The full details of the Estimation process are in the [Estimation Document](documents/Estimation.md).
 
 Naturally, at this point of the project only a small part of the information needed was available;
-the full Estimation Document was of course only compiled after the end of the Requirements Engineering phase.
+the full Estimation Document was compiled only after the end of the Requirements Engineering phase.
 
 [//]: # (![GANTT Chart &#40;Static&#41;]&#40;&#41;)
 [//]: # (TODO)

@@ -1,12 +1,10 @@
 # Requirements Document - InventoryApp
 
-Date: 2026-07-18
+Requirements Analysis for InventoryApp
 
-Version: v1 - Requirements Analysis for InventoryApp
+Date Completed: 2026-07-21
 
-| Version | Curr App Version | Curr Milestone | Change |
-|:-------:|:-----------------|:---------------|:-------|
-|   v1    | v0.1.0-alpha     | Requirements   | -      |
+Date Last Update: 2026-07-21
 
 #### Contents
 
@@ -62,8 +60,8 @@ Version: v1 - Requirements Analysis for InventoryApp
 		+ [Use Case 6.2 (UC-6.2): Read Label](#use-case-62-uc-62-read-label)
 		+ [Use Case 6.3 (UC-6.3): Update Label](#use-case-63-uc-63-update-label)
 		+ [Use Case 6.4 (UC-6.4): Delete Label](#use-case-64-uc-64-delete-label)
-		+ [Use Case 7.0 (UC-7.0): Search Items](#use-case-70-uc-70-search-items)
-		+ [Use Case 8.0 (UC-8.0): View Statistics](#use-case-80-uc-80-view-statistics)
+		+ [Use Case 7.0 (UC-7.0): Manage Search](#use-case-70-uc-70-manage-search)
+		+ [Use Case 8.0 (UC-8.0): Manage Statistics](#use-case-80-uc-80-manage-statistics)
 		+ [Use Case 9.1 (UC-9.1): Export Data](#use-case-91-uc-91-export-data)
 		+ [Use Case 9.2 (UC-9.2): Import Data](#use-case-92-uc-92-import-data)
 		+ [Use Case 10.1 (UC-10.1): Create Account](#use-case-101-uc-101-create-account)
@@ -290,11 +288,11 @@ external entity which interacts with the system.
 |:----------|:-------------------------------|
 | __FR-1__  | __Manage Inventory__           |
 | FR-1.1    | Create Inventory               |
-| FR-1.2    | Read Invetory                  |
-| FR-1.3    | Update Invetory                |
-| FR-1.4    | Delete Invetory                |
-| FR-1.5    | Read Invetory List             |
-| FR-1.6    | Switch Invetory                |
+| FR-1.2    | Read Inventory                 |
+| FR-1.3    | Update Inventory               |
+| FR-1.4    | Delete Inventory               |
+| FR-1.5    | Read Inventory List            |
+| FR-1.6    | Switch Inventory               |
 | __FR-2__  | __Manage Site__                |
 | FR-2.1    | Create Site                    |
 | FR-2.2    | Read Site                      |
@@ -328,11 +326,11 @@ external entity which interacts with the system.
 | FR-6.2    | Read Label                     |
 | FR-6.3    | Update Label                   |
 | FR-6.4    | Delete Label                   |
-| __FR-7__  | __Search Item__                |
+| __FR-7__  | __Manage Search__              |
 | FR-7.1    | Search Item                    |
 | FR-7.2    | Search by Entity Filter        |
 | FR-7.3    | Search Item by Label Filter    |
-| __FR-8__  | __View Statistics__            |
+| __FR-8__  | __Manage Statistics__          |
 | FR-8.1    | View Inventory Statistics      |
 | FR-8.2    | View Archived Items Statistics |
 | FR-8.3    | View Sold Items Statistics     |
@@ -1579,9 +1577,9 @@ In the case of a system with a single type of Actor, the Table of Rights is triv
 | <div align="center"> 1 </div>         | _User_: requests to delete a Label          |
 | <div align="center"> 2 </div>         | _System_: deletes Label                     |
 
-### Use Case 7.0 (UC-7.0): Search Items
+### Use Case 7.0 (UC-7.0): Manage Search
 
-| UC-7.0           | Use Case 7.0: Search Items     | 
+| UC-7.0           | Use Case 7.0: Manage Search    | 
 |:-----------------|:-------------------------------|
 | Actors Involved  | BaseUser                       |
 | Pre-condition    | //                             |
@@ -1623,16 +1621,16 @@ In the case of a system with a single type of Actor, the Table of Rights is triv
 | <div align="center"> 2 </div>         | _System_: reads query and elaborates output                                  |
 | <div align="center"> 3 </div>         | _System_: displays the results based on the search query                     |
 
-### Use Case 8.0 (UC-8.0): View Statistics
+### Use Case 8.0 (UC-8.0): Manage Statistics
 
-| UC-8.0           | Use Case 8.0: View Statistics  | 
-|:-----------------|:-------------------------------|
-| Actors Involved  | BaseUser                       |
-| Pre-condition    | An Inventory exists            |
-| Post-condition   | //                             |
-| Nominal Scenario | Scenario 8.1.1                 |
-| Variants         | Scenario 8.2.1, Scenario 8.3.1 |
-| Exceptions       | //                             |
+| UC-8.0           | Use Case 8.0: Manage Statistics | 
+|:-----------------|:--------------------------------|
+| Actors Involved  | BaseUser                        |
+| Pre-condition    | An Inventory exists             |
+| Post-condition   | //                              |
+| Nominal Scenario | Scenario 8.1.1                  |
+| Variants         | Scenario 8.2.1, Scenario 8.3.1  |
+| Exceptions       | //                              |
 
 #### Scenario 8.1.1: View Inventory Statistics (Successful)
 
@@ -2060,7 +2058,11 @@ In the case of a system with a single type of Actor, the Table of Rights is triv
 In the case of a software-intensive App, the System Design is trivial, as the system component are all software
 components.
 
+![System Design Diagram](./_res/System_Design_Diagram.png)
+
 ## Deployment Diagram
+
+![Deployment Diagram](./_res/Deployment_Diagram.png)
 
 ## Glossary
 
@@ -2068,7 +2070,7 @@ components.
 
 | Term                   | Description                                                                                                                                 | Synonyms                     |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|
-| __Inventory__          | A collection of Items identified by Sites, Spots, Containers                                                                                |                              |
+| __Inventory__          | A collection of Items. Can include multiple Sites, Spots, Containers                                                                        |                              |
 | __Site__               | A physical place; like a building, a sector of a builing, or an appartment. Can have one or more Spots                                      |                              | 
 | __Spot__               | A physical, precise, place; like a drawer, bookshelf or warehouse shelf. Can have one or more Sub-Spots, or can have one or more Containers |                              |
 | __Container__          | An entity that can cointain Items, or whatever object that can cointain other Items (like other Containers)                                 |                              |
@@ -2076,18 +2078,21 @@ components.
 | __Location__           | Path of a Location of an Item (Site>[Spots]>[Containers])                                                                                   | Path                         |
 | __Location Full Path__ | Full absolute path of an Item (Site>[Spots]>[Containers]>Item)                                                                              | Full Path                    |
 | __Details__            | General Term to indicate "additional fields of a <Entity>", where Entity is one of the Entities of the system                               | <Entity> Data, <Entity> Info |
-| __Item Details__       | Additional fields of an Item. Such as: Dimensions, Description, Value, Acquisition Date, Insert Date, Pictures, Quantity.                   | Item Data, Item Info         |
-| __AbstractObject__     | Abstract entity, meaning either a Item or a Container, without referring to any in particular.                                              |                              |
-| __Place__              | Abstact entity, meaning either a Site or a Spot, without referring to any in particular.                                                    |                              |
+| __Item Details__       | Additional fields of an Item. Such as: Dimensions, Description, Value, Acquisition Date, Insert Date, Pictures, Quantity                    | Item Data, Item Info         |
+| __Pickable__           | Abstract entity, meaning either a Item or a Container, without referring to any in particular                                               |                              |
+| __Place__              | Abstact entity, meaning either a Site or a Spot, without referring to any in particular                                                     |                              |
 | __Track/Tracked__      | To add to an Inventory / To be actively part of an Inventory                                                                                | Store, Memorize              |
 | __Stocktaking__        | The physical activity of tracking or counting materials or goods                                                                            | Inventory, Stock             |
 | __Category__           | Category of an Item, not to be confused with Label. Category list is pre-defined                                                            | Main Category                |
 | __Label__              | Custom category of an Item. Labels can be defined and modified by the User                                                                  |                              |
 | __Legacy Item__        | Item that is no longer (in real life) part of an Inventory. Can be either Archived or Sold                                                  |                              |
-| __User__               | Any type of User, without referring to any in particular.                                                                                   |                              |
-| __StandardUser__       | Abstract entity, either a BaseUser or a Logged User, without referring to any in particular.                                                |                              |
-| __BaseUser__           | User, in particular a StandrdUser who is not logged in.                                                                                     |                              |
-| __LoggedUser__         | User, in particular a StandrdUser who is logged in.                                                                                         |                              |
+| __User__               | Any type of User, without referring to any in particular. In Scenarios, it referes to the actor subject of the Use Case                     |                              |
+| __StandardUser__       | Abstract entity, either a BaseUser or a Logged User, without referring to any in particular                                                 |                              |
+| __BaseUser__           | User, in particular a StandardUser who is not logged in                                                                                     |                              |
+| __LoggedUser__         | User, in particular a StandardUser who is logged in                                                                                         |                              |
+| __Data__               | If mentioned alone as a noun, means all the persistent data (All the Inventories)                                                           |                              |
 
 ### Glossary Diagram
+
+![Glossary Diagram](./_res/Glossary_Diagram.png)
 

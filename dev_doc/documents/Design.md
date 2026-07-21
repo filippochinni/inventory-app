@@ -1,12 +1,12 @@
-# Design Document - Inventory App
+# Design Document - InventoryApp
 
-Date: 2026-07-17
+System Design Document for InventoryApp
 
-Version: v1 - Project Estimation for InventoryApp
+Date Completed: --
 
-| Version | Curr App Version | Curr Milestone | Change | 
-|:-------:|:-----------------|:---------------|:-------|
-|   v1    | v0.1.0-prealpha  | Requirements   | -      |
+Date Last Update: 2026-07-21
+
+## UI/UX Design
 
 ## Software Architecture Design
 
@@ -15,3 +15,9 @@ Version: v1 - Project Estimation for InventoryApp
 ## Software Design
 
 ### Software Modules Specification
+
+## Database Design
+
+## Release Deployment Diagram
+
+More concrete version of the Deployment Diagram, where abstract Artifacts and Components, like external services or execution environments, are replaced by the ones which are actually going to be implemented in the Release.
