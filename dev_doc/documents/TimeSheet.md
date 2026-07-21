@@ -2,7 +2,7 @@
 
 Table of the Effort spent per day, per activity.
 
-The Effort is expressed in Person Hours (ph), where 1 ph = 1 person working 1 hour.
+Effort is expressed in Person Hours (ph), where 1 ph = 1 person working 1 hour.
 
 |        Day         |  Concept  |  Requirements  |  Design  |  Development  |  Testing  |
 |:------------------:|:---------:|:--------------:|:--------:|:-------------:|:---------:|
@@ -11,8 +11,8 @@ The Effort is expressed in Person Hours (ph), where 1 ph = 1 person working 1 ho
 |  2026-07-18 (sat)  |           |       8        |          |               |           |
 |  2026-07-19 (sun)  |           |       1        |          |               |           |
 |  2026-07-20 (mon)  |           |       2        |          |               |           |
-|  2026-07-21 (tue)  |           |       11       |          |               |           |
-|  2026-07-22 (wed)  |           |                |          |               |           |
+|  2026-07-21 (tue)  |           |       13       |          |               |           |
+|  2026-07-22 (wed)  |           |                |    0     |               |           |
 |  2026-07-23 (thu)  |           |                |          |               |           |
 |  2026-07-24 (fry)  |           |                |          |               |           |
 |  2026-07-25 (sat)  |           |                |          |               |           |
@@ -39,4 +39,4 @@ The Effort is expressed in Person Hours (ph), where 1 ph = 1 person working 1 ho
 |  2026-08-15 (sat)  |           |                |          |               |           |
 |  2026-08-16 (sun)  |           |                |          |               |           |
 | :----------------: | :-------: | :------------: | :------: | :-----------: | :-------: |
-|     __Total__      |   __2__   |                |          |               |           |
+|     __Total__      |  __14__   |     __24__     |          |               |           |
