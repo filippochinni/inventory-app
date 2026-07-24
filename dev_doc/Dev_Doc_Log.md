@@ -47,7 +47,7 @@ The Changelog was updated throughout the development process; the full details o
 
 The Application Lifecycle Management (ALM) tool for the project is GitHub.
 
-GitHub other than being the tool used for Distributed VCS (that is the Remote Repository of the project), was also utilized for Issue Tracking, Milestones, and Merge Requests (only for merging between the three Persistent Branches).
+GitHub other than being the tool used for Distributed VCS (that is the Remote Repository of the project), was also utilized for Issue Tracking, Milestones, and Merge Requests.
 
 #### Issue Creation
 
@@ -56,6 +56,7 @@ GitHub other than being the tool used for Distributed VCS (that is the Remote Re
 - `Assignee`: (for this project only myself)
 - `Labels`: to be defined in the ALM tool (see below)
 - `Milestone`: to be defined in the ALM tool (see below)
+- `Development`: (if exists) the Ephemeral Branch to be used to work on the Issue
 
 _Labels_:
 - `bug`: the Issue is about a bug
@@ -95,7 +96,7 @@ _Merge Request Creation_:
 
 #### Issue Resolution
 
-- If the ALM tools allows it, Issues should be closed automatically by the Merge Request that is resolving them, by filling the Merge Request's fields correctly.
+- If the ALM tools allows it, Issues should be closed automatically by the Merge Request that is resolving them, by filling the Merge Request's fields correctly with special keywords.
 - Else, the Issue should be closed manually by the Assignee after is resolved.
 
 ### TimeSheet
