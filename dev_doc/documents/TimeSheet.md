@@ -15,7 +15,7 @@ Effort is expressed in Person Hours (ph), where 1 ph = 1 person working 1 hour.
 |  2026-07-22 (wed)  |           |                |    9     |               |           |
 |  2026-07-23 (thu)  |           |                |    10    |               |           |
 |  2026-07-24 (fry)  |           |                |    8     |               |           |
-|  2026-07-25 (sat)  |           |                |          |               |           |
+|  2026-07-25 (sat)  |           |                |    5     |               |           |
 |  2026-07-26 (sun)  |           |                |          |               |           |
 |  2026-07-27 (mon)  |           |                |          |               |           |
 |  2026-07-28 (tue)  |           |                |          |               |           |

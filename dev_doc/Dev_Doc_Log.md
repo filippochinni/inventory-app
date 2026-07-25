@@ -115,8 +115,7 @@ Time Estimation of the project and its phases: Three different Estimation Approa
 Naturally, at this point of the project only a small part of the information needed was available;
 the full Estimation Document was compiled only after the end of the Requirements Engineering phase.
 
-[//]: # (![GANTT Chart &#40;Static&#41;]&#40;&#41;)
-[//]: # (TODO)
+![GANTT Chart (Static)](./documents/_res/GANTT_Chart.png)
 
 ## Concept
 
@@ -183,9 +182,24 @@ A Use Case always needs its Nominal Scenario and can also have multiple Alternat
 
 ## Design
 
-### System Architecture Design
+Phase of the project where the application is designed from a technical point of view.
+
+The full details of the Design Phase are in the [Design Document](documents/Design.md).
 
 ### UI & UX Design
+
+The UI/UX were design following the principles of User-Centered Design (UCD) and in general following the best practices of Software Usability.
+
+The UI was designed using Figma. The Figma design can and does function as a high-fidelity prototype of the App, therefore was also the tool used to design and test the UX.
+
+The full details of the UI/UX Design are in the [Design Document](documents/Design.md#uiux-design), UI/UX Design section.
+
+The Figma project is available on Figma website: [InventoryApp Figma Project](https://www.figma.com/design/Ec59pNn7CqpADMZp0k1JiM/InventoryApp?m=auto&t=OfLXEz6hHjsiHwUT-1)<br>
+The Figma High-Fidelity Prototype for InventoryApp is available on Figma website: [InventoryApp Figma Prototype](https://www.figma.com/proto/Ec59pNn7CqpADMZp0k1JiM/InventoryApp)
+
+![UI Design](./documents/_res/_ui/UI_Design_FULL.gif)
+
+### System Architecture Design
 
 ### Database Design
 
