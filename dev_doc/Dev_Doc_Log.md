@@ -194,8 +194,8 @@ The UI was designed using Figma. The Figma design can and does function as a hig
 
 The full details of the UI/UX Design are in the [Design Document](documents/Design.md#uiux-design), UI/UX Design section.
 
-The Figma project is available on Figma website: [InventoryApp Figma Project](https://www.figma.com/design/Ec59pNn7CqpADMZp0k1JiM/InventoryApp?m=auto&t=OfLXEz6hHjsiHwUT-1)<br>
-The Figma High-Fidelity Prototype for InventoryApp is available on Figma website: [InventoryApp Figma Prototype](https://www.figma.com/proto/Ec59pNn7CqpADMZp0k1JiM/InventoryApp)
+The Figma project is available on Figma website: [InventoryApp Figma Project](https://www.figma.com/design/FXXJfeSKg4SOxbnkhZPsB7/InventoryApp?node-id=0-1&t=sWx7nqvgmt3T5ePB-1)<br>
+The Figma High-Fidelity Prototype for InventoryApp is available on Figma website: [InventoryApp Figma Prototype](https://www.figma.com/proto/FXXJfeSKg4SOxbnkhZPsB7/InventoryApp)
 
 ![UI Design](./documents/_res/_ui/UI_Design_FULL.gif)
 
