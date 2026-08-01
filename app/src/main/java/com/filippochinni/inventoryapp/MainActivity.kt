@@ -1,24 +1,47 @@
-package com.filippochinni.inventoryapp;
+package com.filippochinni.inventoryapp
 
-import android.os.Bundle;
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.filippochinni.inventoryapp.ui.theme.InventoryAppTheme
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+class MainActivity : ComponentActivity() {
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		enableEdgeToEdge()
+		setContent {
+			InventoryAppTheme {
+				Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+					Greeting(
+						name = "Android",
+						modifier = Modifier.padding(innerPadding)
+					)
+				}
+			}
+		}
+	}
+}
 
-public class MainActivity extends AppCompatActivity {
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+	Text(
+		text = "Hello $name!",
+		modifier = modifier
+	)
+}
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		EdgeToEdge.enable(this);
-		setContentView(R.layout.activity_main);
-		ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-			Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-			v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-			return insets;
-		});
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+	InventoryAppTheme {
+		Greeting("Android")
 	}
 }
