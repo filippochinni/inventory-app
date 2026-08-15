@@ -188,7 +188,7 @@ The full details of the Design Phase are in the [Design Document](documents/Desi
 
 ### UI & UX Design
 
-The UI/UX were design following the principles of User-Centered Design (UCD) and in general following the best practices of Software Usability.
+The UI/UX were designed following the principles of User-Centered Design (UCD) and in general following the best practices of Software Usability.
 
 The UI was designed using Figma. The Figma design can and does function as a high-fidelity prototype of the App, therefore was also the tool used to design and test the UX.
 
@@ -199,11 +199,16 @@ The Figma High-Fidelity Prototype for InventoryApp is available on Figma website
 
 ![UI Design](./documents/_res/_ui/UI_Design_FULL.gif)
 
-### System Architecture Design
+### Software Architecture Design
+
+The Software Architecture was designed following the recommendations of the official [Android Developers](https://developer.android.com/). In particular follows the model of a Layered Architecture, the Single Source of Truth (SSOT) pattern, and the Unidirectional Data Flow (UDF) pattern.
+The diagram is semiformal; becomes UML compliant if blocks are represented as UML "Components".
+
+![Software Architecture Diagram](./documents/_res/Software_Architecture_Diagram.png)
+
+### Software Design
 
 ### Database Design
-
-### System Design
 
 ## Development
 

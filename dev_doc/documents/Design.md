@@ -30,7 +30,29 @@ differences in the technologies for design and development.
 
 ## Software Architecture Design
 
+Architectural Pattern: Layered Architecture (Android Variant)
+Relational Patterns included: Single Source of Truth (SSOT), Unidirectional Data Flow (UDF)
+
+![Software Architecture Design](./_res/Software_Architecture_Diagram.png)
+
 ### Software Components Specification
+
+Main Layers:
+
+|                  |                                       |
+|------------------|---------------------------------------|
+| **UI Layer**     | Builds and manages the user interface |
+| **Domain Layer** | Handles business logic                |
+| **Data Layer**   | Obtains and exposes app data          |
+
+Sub-Layers:
+
+|                |                                                                  |
+|----------------|------------------------------------------------------------------|
+| **Screen**     | Describes the UI and handles user interactions                   |
+| **ViewModel**  | Hosts and handles the UI state and manages configuration changes |
+| **Repository** | Exposes the app data and centralizes data access                 |
+| **DataSource** | Obtain app data and manages persistence                          |
 
 ## Software Design
 
