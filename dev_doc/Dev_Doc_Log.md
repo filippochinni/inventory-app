@@ -208,6 +208,12 @@ The diagram is semiformal; becomes UML compliant if blocks are represented as UM
 
 ### Software Design
 
+The Software Design was heavily influenced by the recommendations of Android Developers, whose best practices utilize Android-specific libraries which strictly follow determined Design Patterns.
+
+To keep the diagram abstract, Android-specific components are displayed with generic names (e.g. "ORM class" instead of "Room class"). This allows the design, and thus the application, to switch to new or completely different technologies in the future.
+
+![Software Design Diagram](./documents/_res/Software_Design_Diagram.png)
+
 ### Database Design
 
 ## Development

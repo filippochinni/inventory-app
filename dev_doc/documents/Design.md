@@ -56,6 +56,21 @@ Sub-Layers:
 
 ## Software Design
 
+Diagram Type: Semi-Formal Diagram (mix of UML Class and UML Package)
+
+![Software Design Diagram](./_res/Software_Design_Diagram.png)
+
+|                |                                                                                                                   |
+|----------------|-------------------------------------------------------------------------------------------------------------------|
+| **Screen**     | <img src="./_res/_sw_design_zoom/Software_Design_Diagram__Screen.png" alt="SW Desing - Screen" width=700>         |
+| **ViewModel**  | <img src="./_res/_sw_design_zoom/Software_Design_Diagram__ViewModel.png" alt="SW Design - ViewModel" width=700>   |
+| **Domain**     | <img src="./_res/_sw_design_zoom/Software_Design_Diagram__Domain.png" alt="SW Design - Domain" width=700>         |
+| **Repository** | <img src="./_res/_sw_design_zoom/Software_Design_Diagram__Repository.png" alt="SW Design - Repository" width=700> |
+| **DataSource** | <img src="./_res/_sw_design_zoom/Software_Design_Diagram__DataSource.png" alt="SW Design - DataSource" width=700> |
+
+__NOTES:__
+- The Domain layer and its use-cases are not strict design specifications, depending on the complexity of the feature detected during the development phase, new classes may be added and current ones may be modified or removed.
+
 ### Software Modules Specification
 
 ## Database Design
