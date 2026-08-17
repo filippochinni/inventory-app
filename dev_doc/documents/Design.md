@@ -4,7 +4,7 @@ System Design Document for InventoryApp
 
 Date Completed: --
 
-Date Last Update: 2026-07-21
+Date Last Update: 2026-08-17
 
 ## UI/UX Design
 
@@ -69,13 +69,50 @@ Diagram Type: Semi-Formal Diagram (mix of UML Class and UML Package)
 | **DataSource** | <img src="./_res/_sw_design_zoom/Software_Design_Diagram__DataSource.png" alt="SW Design - DataSource" width=700> |
 
 __NOTES:__
-- The Domain layer and its use-cases are not strict design specifications, depending on the complexity of the feature detected during the development phase, new classes may be added and current ones may be modified or removed.
+- The Domain layer and its use-cases are not strict design specifications, depending on the complexity of the feature
+  detected during the development phase, new classes may be added and current ones may be modified or removed.
 
-### Software Modules Specification
+### Software Sub-Components Specification
+
+| Package / Component    | Description                                                                                                                  |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| **MainActivity**       | Functions as the entry point of the App. Necessary in an Android App                                                         |
+| **MainApplication**    | Necessary for Dependency Injection                                                                                           |
+| **Screen**             | Contains the Compose Screen classes which build the UI and handle UI-specific logic                                          |
+| **Theme**              | Contains the Compose Theme classes providing color, typography, and shapes to the App                                        |
+| **Navigation**         | Contains the Navigation classes which manage the navigation between Screens                                                  |
+| **ViewModel**          | Contains pairs of ViewModel classes and their corresponding State classes                                                    |
+| **Domain**             | Contains the UseCase classes which implement the business logic of the App                                                   |
+| **Repository**         | Contains groups made of a Repository interface and one or more Repository implementations                                    |
+| **RepositoryDIModule** | Is a DI container which provides Repository dependencies to the Domain layer                                                 |
+| ***Repository***       | Interface representing the archetype of a Repository                                                                         |
+| **DataSourceDIModule** | Is a DI container which provides DataSource dependencies to the Repository layer                                             |
+| **Entity**             | Contains the Entity classes which represent the data model of the App and are used by other packages of the DataSource layer |
+| **Database**           | Contains the DAO classes which manage the persistence of the App data which is stored in the local database                  |
+| **AppDatabase**        | Is the component which manages and represents the local database of the App                                                  |
+| **DataStore**          | Contains the DataStore classes which manage the persistence of the App data which is the local filesystem                    |
+| **Network**            | Contains the Network classes which manage the persistence of the App data which is stored in a remote server                 |
+| **AppNetworkService**  | Is the component which manages and represents the remote server of the App                                                   |
 
 ## Database Design
+
+### Conceptual Database Diagram
+
+Diagram Type: Conceptual Entity-Relationship Diagram
+
+![Conceptual Database Diagram](./_res/Database_Design_Diagram__Conceptual.png)
+
+### Logical Database Diagram
+
+Diagram Type: UML Entity-Relationship Diagram
+
+![Logical Database Diagram](./_res/Database_Design_Diagram__Logical.png)
 
 ## Release Deployment Diagram
 
 More concrete version of the Deployment Diagram, where abstract Artifacts and Components, like external services or
 execution environments, are replaced by the ones which are actually going to be implemented in the Release.
+
+Diagram Type: UML Deployment Diagram
+
+![Release Deployment Diagram](./_res/Release_Deployment_Diagram.png)

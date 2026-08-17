@@ -216,6 +216,20 @@ To keep the diagram abstract, Android-specific components are displayed with gen
 
 ### Database Design
 
+The Database Design was performed using a Conceptual Entity-Relationship Diagram and a Logical Entity-Relationship Diagram (UML Entity-Relationship).
+
+While the Database Design allows for a more abstract and technology-independent view of the database, the actual implementation will use the Room library, which is an Android-specific ORM (Object-Relational Mapping) library, and thus the actual database implementation will be automatic.
+
+![Logical Database Diagram](./documents/_res/Database_Design_Diagram__Logical.png)
+
+### Release Deployment Diagram
+
+The Deployment Diagram build during the Requirements phase just represents an abstract idea of how the system will be deployed, but does not give any information to developers and potential clients the real deployment.
+
+At the end of the Design phase, decisions about the actual deployment of the system were made, and thus a concrete version of the diagram was created, which includes the actual services and technologies which the system will use.
+
+![Release Deployment Diagram](./documents/_res/Release_Deployment_Diagram.png)
+
 ## Development
 
 ## Testing
