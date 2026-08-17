@@ -100,7 +100,7 @@ __NOTES:__
 
 Diagram Type: Conceptual Entity-Relationship Diagram
 
-![Conceptual Database Diagram](./_res/Database_Design_Diagram__Conceptual.png)
+![Conceptual Database Diagram](./_res/Database_Desing_Diagram__Conceptual.png)
 
 ### Logical Database Diagram
 
