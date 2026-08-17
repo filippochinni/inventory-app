@@ -21,7 +21,7 @@ The project uses Git by following the GitFlow model. All the practise and conven
 The Persistent Branches of the project are:
 - `main`: the Main Branch, where the production-ready code is stored.
 - `dev`: the Development Branch, used when developing new features.
-- `testing`: the Quality Assurance Branch, used when testing the application.
+- `test`: the Quality Assurance Branch, used when testing the application.
 
 The full details of the GitFlow conventions applied are in the [GitFlow Document](documents/GitFlow.md).
 

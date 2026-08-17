@@ -18,7 +18,7 @@ In order to keep the Git Repository even more clean and organized, and to furthe
 In the project there are three Persistent Branches:
 - `main`: the Main Branch, where the production-ready code is stored.
 - `dev`: the Development Branch, used when developing new features.
-- `testing`: the Quality Assurance Branch, used when testing the application.
+- `test`: the Quality Assurance Branch, used when testing the application.
 
 ### Semi-Persistent Branches
 
@@ -51,7 +51,7 @@ Branch Tags are prefixes used to better specify the Ephemeral Branches in relati
 |:--------|:--------------------------|
 | feature | dev                       |
 | hotfix  | main                      |
-| bugfix  | testing                   |
+| bugfix  | test                      |
 | req     | requirements \| dev       |
 | des     | design \| dev             |
 
