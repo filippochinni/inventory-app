@@ -1,34 +1,25 @@
 package com.filippochinni.inventoryapp.ui.navigation
 
 import androidx.navigation3.runtime.NavKey
-import kotlin.text.get
 
-class Navigator(val state: NavigationState){
-	fun navigate(route: NavKey){
-		if (route in state.backStacks.keys){
-			state.topLevelRoute = route
-		} else {
-			state.backStacks[state.topLevelRoute]?.add(route)
-		}
+class Navigator(val state: NavigationState) {
+    fun navigate(route: NavKey) {
+        if (NAV_ITEMS.any { it.navKey == route }) {
+            state.backStack.clear()
+            state.backStack.add(route)
+        } else {
+            state.backStack.add(route)
+        }
+    }
+
+    fun goBack() {
+        if (state.backStack.size > 1) {
+            state.backStack.removeAt(state.backStack.lastIndex)
+        }
+    }
+
+    fun canGoBack(): Boolean {
+		return state.backStack.size > 1
 	}
 
-	fun goBack(){
-		val currentStack = state.backStacks[state.topLevelRoute] ?:
-		error("Stack for ${state.topLevelRoute} not found")
-		val currentRoute = currentStack.last()
-
-		if (currentRoute == state.topLevelRoute){
-			state.topLevelRoute = state.startRoute
-		} else {
-			currentStack.removeLastOrNull()
-		}
-	}
-
-	fun canGoBack(): Boolean {
-		val currentStack = state.backStacks[state.topLevelRoute] ?: return false
-		val isAtTabRoot = currentStack.last() == state.topLevelRoute
-		val isStartTab = state.topLevelRoute == state.startRoute
-
-		return !isAtTabRoot || !isStartTab
-	}
 }
