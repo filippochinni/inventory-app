@@ -252,6 +252,10 @@ In the case of a single-developer project, other Agile ceremonies (like Sprint P
 
 The Product Backlog is available in the [Product Backlog Document](documents/ProductBacklog.md).
 
+### Implementation Log
+
+The first step was to define all the external dependencies of the project, and then prepare the codebase to strictly follow the Software Design and Architecture.
+
 ## Testing
 
 ## Release

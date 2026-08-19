@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Codebase Setup
+- External Library Setup
+- Product Backlog Document
 
 ### [0.1.0-beta]
 

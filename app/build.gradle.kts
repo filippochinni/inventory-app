@@ -1,6 +1,11 @@
 plugins {
 	alias(libs.plugins.android.application)
 	alias(libs.plugins.kotlin.compose)
+
+	//Core External Libraries
+	alias(libs.plugins.jetbrains.kotlin.serialization)
+	alias(libs.plugins.devtools.ksp)
+	alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -51,4 +56,34 @@ dependencies {
 	androidTestImplementation(libs.androidx.junit)
 	debugImplementation(libs.androidx.compose.ui.test.manifest)
 	debugImplementation(libs.androidx.compose.ui.tooling)
+
+	//Core External Libraries
+	implementation(libs.androidx.navigation3.ui)
+	implementation(libs.androidx.navigation3.runtime)
+	implementation(libs.androidx.material3.adaptive.navigation3)
+	implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+	implementation(libs.kotlinx.serialization.core)
+	implementation(libs.hilt.android)
+	ksp(libs.hilt.android.compiler)
+	implementation(libs.androidx.room3.runtime)
+	ksp(libs.androidx.room3.compiler)
+	implementation(libs.androidx.datastore)
+	implementation(libs.androidx.datastore.preferences)
+	implementation(libs.androidx.lifecycle.viewmodel.compose)
+	implementation(libs.androidx.compose.material3.window.size.class1)
+	implementation(libs.coil.compose)
+	implementation(libs.retrofit)
+	implementation(libs.kotlinx.serialization.json)
+	implementation(libs.retrofit2.kotlinx.serialization.converter)
+	testRuntimeOnly(libs.junit.platform.launcher)
+	testImplementation(libs.junit.jupiter)
+	testImplementation(libs.kotlinx.coroutines.test)
+	androidTestImplementation(libs.androidx.navigation.testing)
+	androidTestImplementation(libs.androidx.espresso.intents)
+	androidTestImplementation(libs.androidx.work.testing)
+}
+
+//Core External Libraries
+tasks .withType<Test> {
+	useJUnitPlatform()
 }
