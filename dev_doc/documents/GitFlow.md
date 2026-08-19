@@ -58,7 +58,7 @@ Branch Tags are prefixes used to better specify the Ephemeral Branches in relati
 _Ephemeral Branches Names Examples:_
 
 `req/#2-update-requirements` <br><br>
-`dev/#543-impl-sensor` <br><br>
+`feature/#543-impl-sensor` <br><br>
 `hotfix/fix-activity-crash` <br><br>
 `hotfix/#13-fix-rest-module`
 

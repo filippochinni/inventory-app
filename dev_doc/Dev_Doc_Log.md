@@ -16,7 +16,7 @@ Phase of the project where the initial configurations are set, conventions and i
 
 The Version Control System (VCS) of the project is Git, the Distributed VCS (the Remote Repository) is GitHub.
 
-The project uses Git by following the GitFlow model. All the practise and conventions of GitFlow are followed, and some even more restrictive conventions have been defined to further improve the project's Version Control organization and management.
+The project uses Git by following the GitFlow model. All the practices and conventions of GitFlow are followed, and some even more restrictive conventions have been defined to further improve the project's Version Control organization and management.
 
 The Persistent Branches of the project are:
 - `main`: the Main Branch, where the production-ready code is stored.
@@ -80,6 +80,8 @@ _Milestones_:
 _Merge Request General Rules:_
 - Mapping `Issue:MergeRequest ==> 1:1`
 	- An Issue can be resolved by only one Merge Request
+- Mapping `MergeRequest:Issue ==> 1:N`
+	- A Merge Request can resolve multiple Issues at once (only if issues are related)
 - Mapping `MergeRequest:Branch ==> 1:1`
 	- An Ephemeral Branch is deleted after its Merge Request
 - Mapping `MergeRequest:Commit ==> 1:N`
@@ -204,6 +206,8 @@ The Figma High-Fidelity Prototype for InventoryApp is available on Figma website
 The Software Architecture was designed following the recommendations of the official [Android Developers](https://developer.android.com/). In particular follows the model of a Layered Architecture, the Single Source of Truth (SSOT) pattern, and the Unidirectional Data Flow (UDF) pattern.
 The diagram is semiformal; becomes UML compliant if blocks are represented as UML "Components".
 
+The full details of the Software Architecture Design are in the [Design Document](documents/Design.md#software-architecture-design), Software Architecture Design section.
+
 ![Software Architecture Diagram](./documents/_res/Software_Architecture_Diagram.png)
 
 ### Software Design
@@ -211,6 +215,8 @@ The diagram is semiformal; becomes UML compliant if blocks are represented as UM
 The Software Design was heavily influenced by the recommendations of Android Developers, whose best practices utilize Android-specific libraries which strictly follow determined Design Patterns.
 
 To keep the diagram abstract, Android-specific components are displayed with generic names (e.g. "ORM class" instead of "Room class"). This allows the design, and thus the application, to switch to new or completely different technologies in the future.
+
+The full details of the Software Design are in the [Design Document](documents/Design.md#software-design), Software Design section.
 
 ![Software Design Diagram](./documents/_res/Software_Design_Diagram.png)
 
@@ -220,17 +226,31 @@ The Database Design was performed using a Conceptual Entity-Relationship Diagram
 
 While the Database Design allows for a more abstract and technology-independent view of the database, the actual implementation will use the Room library, which is an Android-specific ORM (Object-Relational Mapping) library, and thus the actual database implementation will be automatic.
 
+The full details of the Database Design are in the [Design Document](documents/Design.md#database-design), Database Design section.
+
 ![Logical Database Diagram](./documents/_res/Database_Design_Diagram__Logical.png)
 
 ### Release Deployment Diagram
 
-The Deployment Diagram build during the Requirements phase just represents an abstract idea of how the system will be deployed, but does not give any information to developers and potential clients the real deployment.
+The Deployment Diagram built during the Requirements phase just represents an abstract idea of how the system will be deployed, but does not give any information to developers and potential clients the real deployment.
 
 At the end of the Design phase, decisions about the actual deployment of the system were made, and thus a concrete version of the diagram was created, which includes the actual services and technologies which the system will use.
+
+The full details of the Release Deployment Diagram are in the [Design Document](documents/Design.md#release-deployment-diagram), Release Deployment Diagram section.
 
 ![Release Deployment Diagram](./documents/_res/Release_Deployment_Diagram.png)
 
 ## Development
+
+Phase of the project where the designed functionalities are implemented.
+
+### Product Backlog
+
+From the Development phase onwards, the project is managed in an Agile way, implementing only a subset of the features each version. The Product Backlog keeps track of what features are implemented and when, and what features are still to be implemented in future versions.
+
+In the case of a single-developer project, other Agile ceremonies (like Sprint Planning, Daily SCRUM, Sprint Review) are not necessary as there is no team to coordinate with and there is no client who decides what features are the most important.
+
+The Product Backlog is available in the [Product Backlog Document](documents/ProductBacklog.md).
 
 ## Testing
 
