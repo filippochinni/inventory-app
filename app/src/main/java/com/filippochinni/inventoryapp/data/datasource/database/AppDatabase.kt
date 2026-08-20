@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room3.Database
 import androidx.room3.Room
 import androidx.room3.RoomDatabase
-import com.filippochinni.inventoryapp.data.datasource.entity.InventoryEntity
+import com.filippochinni.inventoryapp.data.datasource.database.entity.InventoryEntity
 
 @Database(entities = [InventoryEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {

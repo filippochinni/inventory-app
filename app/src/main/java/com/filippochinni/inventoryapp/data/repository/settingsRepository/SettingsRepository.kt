@@ -1,4 +1,7 @@
 package com.filippochinni.inventoryapp.data.repository.settingsRepository
 
-interface SettingsRepository {
+import com.filippochinni.inventoryapp.data.repository.DataStoreRepository
+
+
+interface SettingsRepository : DataStoreRepository {
 }
