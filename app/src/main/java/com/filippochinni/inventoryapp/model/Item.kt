@@ -15,5 +15,5 @@ data class Item(
 	val isSold: Boolean,
 	val parentId: Int,
 	val pictures: List<String>,
-	val labels: List<Label>
+	val labels: List<Int>
 ) : AbstractType

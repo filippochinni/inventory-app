@@ -20,7 +20,6 @@ data class ItemEntity(
 	val insertDate: Long,
 	val isArchived: Boolean,
 	val isSold: Boolean,
-	val picture: String?,
 	val parentId: Int
 ) : AbstractEntity {
 	@Entity(tableName = "item_picture", indices = [Index("itemId")])
