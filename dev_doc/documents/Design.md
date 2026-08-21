@@ -82,7 +82,7 @@ __NOTES:__
 | **Screen**             | Contains the Compose Screen classes which build the UI and handle UI-specific logic                          |
 | **Theme**              | Contains the Compose Theme classes providing color, typography, and shapes to the App                        |
 | **Navigation**         | Contains the Navigation classes which manage the navigation between Screens                                  |
-| **ViewModel**          | Contains pairs of ViewModel classes and their corresponding State classes                                    |
+| **ViewModel**          | Contains groups of ViewModel (divided per app section) that host the UI State and handle the state logic     |
 | **Domain**             | Contains the UseCase classes which implement the business logic of the App                                   |
 | **Repository**         | Contains groups made of a Repository interface and one or more Repository implementations                    |
 | **RepositoryDIModule** | Is a DI container which provides Repository dependencies to the Domain layer                                 |

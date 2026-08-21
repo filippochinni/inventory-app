@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="icon_size_std">24dp</dimen>
+	<dimen name="rounding_none">0dp</dimen>
+	<dimen name="padding_one">1dp</dimen>
+	<dimen name="padding_extra_extra_small">2dp</dimen>
+	<dimen name="padding_extra_small">4dp</dimen>
+	<dimen name="padding_small">8dp</dimen>
+	<dimen name="padding_medium">16dp</dimen>
+	<dimen name="padding_icon_size">24dp</dimen>
+	<dimen name="padding_large">32dp</dimen>
+	<dimen name="padding_extra_large">48dp</dimen>
+	<dimen name="rounding_extra_small">4dp</dimen>
+	<dimen name="rounding_small">8dp</dimen>
+	<dimen name="rounding_medium">12dp</dimen>
+	<dimen name="rounding_large">16dp</dimen>
+	<dimen name="rounding_increased">20dp</dimen>
+	<dimen name="rounding_extra_large">28dp</dimen>
+	<dimen name="rounding_extra_large_increased">32dp</dimen>
+	<dimen name="rounding_extra_extra_large">48dp</dimen>
+	<dimen name="elevation_small">2dp</dimen>
+	<dimen name="elevation_medium">4dp</dimen>
+	<dimen name="elevation_large">8dp</dimen>
+	<dimen name="border_small">1dp</dimen>
+	<dimen name="border_medium">2dp</dimen>
+	<dimen name="border_large">4dp</dimen>
+	<dimen name="screen_border_padding_hor">16dp</dimen>
+	<dimen name="screen_border_padding_ver">8dp</dimen>
+	<dimen name="info_surface_small">64dp</dimen>
+	<dimen name="info_surface_medium">128dp</dimen>
+	<dimen name="info_surface_large">256dp</dimen>
+	<dimen name="list_elem_h_small">64dp</dimen>
+	<dimen name="list_elem_h_medium">128dp</dimen>
+	<dimen name="list_gap_ver">16dp</dimen>
+	<dimen name="form_elem_input_text_long_h">128dp</dimen>
+	<dimen name="form_gap_ver">16dp</dimen>
+	<dimen name="button_group_gap_hor">8dp</dimen>
+
+</resources>
