@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<dimen name="icon_size_std">24dp</dimen>
+	<dimen name="icon_size_large">48dp</dimen>
 	<dimen name="rounding_none">0dp</dimen>
 	<dimen name="padding_one">1dp</dimen>
 	<dimen name="padding_extra_extra_small">2dp</dimen>
@@ -26,6 +27,9 @@
 	<dimen name="border_large">4dp</dimen>
 	<dimen name="screen_border_padding_hor">16dp</dimen>
 	<dimen name="screen_border_padding_ver">8dp</dimen>
+	<dimen name="loading_indicator_small">24dp</dimen>
+	<dimen name="loading_indicator_medium">48dp</dimen>
+	<dimen name="loading_indicator_large">64dp</dimen>
 	<dimen name="info_surface_small">64dp</dimen>
 	<dimen name="info_surface_medium">128dp</dimen>
 	<dimen name="info_surface_large">256dp</dimen>

@@ -1,7 +1,9 @@
 package com.filippochinni.inventoryapp.ui.screen.inventoryGroup
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,11 +16,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.HorizontalFloatingToolbar
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -28,6 +34,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -35,8 +42,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.filippochinni.inventoryapp.R
 import com.filippochinni.inventoryapp.model.Inventory
+import com.filippochinni.inventoryapp.ui.screen._screenUtils.CustomLoadingIndicator
 import com.filippochinni.inventoryapp.ui.viewmodel.inventoryGroup.InventoryListUIState
 import com.filippochinni.inventoryapp.ui.viewmodel.inventoryGroup.InventoryListViewModel
 
@@ -44,10 +53,12 @@ import com.filippochinni.inventoryapp.ui.viewmodel.inventoryGroup.InventoryListV
 @Composable
 fun InventoryListScreen(
 	onFABClick: () -> Unit,
+	onElementClick: (Inventory) -> Unit,
+	onEditClick: (Int) -> Unit,
 	modifier: Modifier = Modifier,
 	viewModel: InventoryListViewModel = hiltViewModel()
 ) {
-	val uiState by viewModel.uiState.collectAsState()
+	val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
 	Scaffold(
 		floatingActionButton = {
@@ -64,18 +75,91 @@ fun InventoryListScreen(
 	) { innerPadding ->
 		when (uiState) {
 			is InventoryListUIState.Loading -> {
-				//TODO: Loading State UI
-			}
-			is InventoryListUIState.Success -> {
-				InventoryList(
-					inventoryList = (uiState as InventoryListUIState.Success).inventoryList,
-					innerPadding = innerPadding,
-					modifier = modifier
-				)
+				CustomLoadingIndicator()
 			}
 			is InventoryListUIState.Error -> {
 				//TODO: Error State UI
 			}
+			is InventoryListUIState.Success -> {
+				val successUIState = uiState as InventoryListUIState.Success
+				val isSelectionMode = successUIState.selectedElements.isNotEmpty()
+
+				BackHandler(enabled = isSelectionMode) {
+					viewModel.clearSelection()
+				}
+
+				Box(modifier = Modifier) {
+					InventoryList(
+						inventoryList = successUIState.inventoryList,
+						selectedElements = successUIState.selectedElements,
+						onElementClick = { inventory: Inventory ->
+							if (isSelectionMode) viewModel.toggleSelection(inventory.id)
+							else onElementClick(inventory)
+						},
+						onLongPress = { inventory: Inventory -> viewModel.toggleSelection(inventory.id) },
+						innerPadding = innerPadding,
+						modifier = Modifier
+					)
+
+					if (isSelectionMode) {
+						InventoryListSelectionModeToolbar(
+							selectedElements = successUIState.selectedElements,
+							onEditClick = onEditClick,
+							onSwitchActiveClick = viewModel::switchActiveInventory,
+							onDeleteClick = viewModel::deleteSelectedInventories,
+							innerPadding = innerPadding,
+							modifier = Modifier
+								.align(Alignment.BottomCenter)
+						)
+					}
+				}
+			}
+		}
+	}
+}
+
+@Composable
+fun InventoryListSelectionModeToolbar(
+	selectedElements: Set<Int>,
+	onEditClick: (Int) -> Unit,
+	onSwitchActiveClick: (Int) -> Unit,
+	onDeleteClick: (Set<Int>) -> Unit,
+	innerPadding: PaddingValues,
+	modifier: Modifier = Modifier,
+) {
+	HorizontalFloatingToolbar(
+		expanded = true,
+		modifier = modifier
+			.padding(bottom = innerPadding.calculateBottomPadding() + dimensionResource(R.dimen.padding_small))
+			.shadow(
+				elevation = dimensionResource(R.dimen.elevation_medium),
+				shape = CircleShape
+			)
+	) {
+		IconButton(
+			onClick = { onEditClick(selectedElements.first()) },
+			enabled = selectedElements.size == 1) {
+			Icon(
+				painter = painterResource(R.drawable.icon_edit_fill0),
+				contentDescription = null
+			)
+		}
+		IconButton(
+			onClick = { onSwitchActiveClick(selectedElements.first()) },
+			enabled = selectedElements.size == 1) {
+			Icon(
+				painter = painterResource(R.drawable.icon_checkcircle_fill0),
+				contentDescription = null
+			)
+		}
+		IconButton(
+			onClick = { onDeleteClick(selectedElements) },
+			enabled = true
+		) {
+			Icon(
+				painter = painterResource(R.drawable.icon_delete_fill0),
+				contentDescription = null
+			)
 		}
 	}
 }
@@ -83,6 +167,9 @@ fun InventoryListScreen(
 @Composable
 fun InventoryList(
 	inventoryList: List<Inventory>,
+	selectedElements: Set<Int>,
+	onElementClick: (Inventory) -> Unit,
+	onLongPress: (Inventory) -> Unit,
 	innerPadding: PaddingValues,
 	modifier: Modifier = Modifier,
 ) {
@@ -133,7 +220,13 @@ fun InventoryList(
 		else {
 			items(inventoryList.size) { index ->
 				val inventoryElem = inventoryList[index]
-				InventoryElemCard(inventoryElem)
+				InventoryElemCard(
+					inventoryElem = inventoryElem,
+					isSelected = selectedElements.contains(inventoryElem.id),
+					onElementClick = onElementClick,
+					onLongPress = onLongPress,
+					modifier = Modifier
+				)
 			}
 		}
 	}
@@ -142,6 +235,9 @@ fun InventoryList(
 @Composable
 fun InventoryElemCard(
 	inventoryElem: Inventory,
+	onElementClick: (Inventory) -> Unit,
+	onLongPress: (Inventory) -> Unit,
+	isSelected: Boolean,
 	modifier: Modifier = Modifier,
 ) {
 	ElevatedCard(
@@ -149,6 +245,10 @@ fun InventoryElemCard(
 		modifier = modifier
 			.fillMaxWidth()
 			.height(dimensionResource(R.dimen.list_elem_h_medium))
+			.combinedClickable(
+				onClick = { onElementClick(inventoryElem) },
+				onLongClick = { onLongPress(inventoryElem) }
+			)
 			.then(
 				if (inventoryElem.isActive) {
 					Modifier.border(
@@ -161,42 +261,84 @@ fun InventoryElemCard(
 				}
 			)
 	) {
-		Row(
-			modifier = Modifier
-				.fillMaxSize()
+		Box(
+			modifier = Modifier.fillMaxSize()
 		) {
-			Column(
-				horizontalAlignment = Alignment.Start,
-				verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
+			Row(
+				modifier = Modifier.fillMaxSize()
+			) {
+				Column(
+					horizontalAlignment = Alignment.Start,
+					verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
+					modifier = Modifier
+						.fillMaxWidth()
+						.weight(1f)
+						.padding(dimensionResource(R.dimen.padding_medium))
+				) {
+					Text(
+						text = inventoryElem.name,
+						style = MaterialTheme.typography.titleMedium,
+						fontWeight = FontWeight.Bold,
+						modifier = Modifier
+					)
+					Text(
+						text = inventoryElem.description,
+						style = MaterialTheme.typography.bodyLarge,
+						overflow = TextOverflow.Ellipsis,
+						modifier = Modifier
+					)
+				}
+				Box(
+					modifier = Modifier
+						.fillMaxHeight()
+						.aspectRatio(1f)
+				) {
+					Image(
+						painter = painterResource(R.drawable.img_placeholder),
+						contentDescription = null,
+						contentScale = ContentScale.Crop,
+						modifier = Modifier
+							.fillMaxSize()
+					)
+				}
+			}
+			if (isSelected) {
+				InventoryElemCardOverlay(modifier = Modifier)
+			}
+		}
+	}
+}
+
+@Composable
+fun InventoryElemCardOverlay(
+	modifier: Modifier = Modifier
+) {
+	Surface(
+		color = MaterialTheme.colorScheme.primary.copy(alpha = 0.2f),
+		shape = MaterialTheme.shapes.medium,
+		modifier = modifier
+			.fillMaxSize()
+	) {
+		Row(
+			modifier = Modifier.fillMaxSize()
+		) {
+			Box(
 				modifier = Modifier
 					.fillMaxWidth()
 					.weight(1f)
-					.padding(dimensionResource(R.dimen.padding_medium))
-			) {
-				Text(
-					text = inventoryElem.name,
-					style = MaterialTheme.typography.titleMedium,
-					fontWeight = FontWeight.Bold,
-					modifier = Modifier
-				)
-				Text(
-					text = inventoryElem.description,
-					style = MaterialTheme.typography.bodyLarge,
-					overflow = TextOverflow.Ellipsis,
-					modifier = Modifier
-				)
-			}
+			)
 			Box(
+				contentAlignment = Alignment.Center,
 				modifier = Modifier
 					.fillMaxHeight()
 					.aspectRatio(1f)
 			) {
-				Image(
-					painter = painterResource(R.drawable.img_placeholder),
+				Icon(
+					painter = painterResource(R.drawable.icon_checkcircle_fill1),
 					contentDescription = null,
-					contentScale = ContentScale.Crop,
+					tint = MaterialTheme.colorScheme.primary,
 					modifier = Modifier
-						.fillMaxSize()
+						.size(dimensionResource(R.dimen.icon_size_large))
 				)
 			}
 		}

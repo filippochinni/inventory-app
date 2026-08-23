@@ -1,4 +1,4 @@
-package com.filippochinni.inventoryapp.ui.screen
+package com.filippochinni.inventoryapp.ui.screen._screenUtils
 
 import android.content.Context
 import android.widget.Toast

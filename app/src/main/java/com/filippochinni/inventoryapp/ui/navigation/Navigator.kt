@@ -8,9 +8,7 @@ class Navigator(val state: NavigationState) {
     }
 
     fun goBack() {
-        if (state.backStack.size > 1) {
-            state.backStack.removeAt(state.backStack.lastIndex)
-        }
+        state.backStack.removeLastOrNull()
     }
 
     fun canGoBack(): Boolean {
