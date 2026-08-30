@@ -45,6 +45,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.filippochinni.inventoryapp.R
 import com.filippochinni.inventoryapp.model.Inventory
+import com.filippochinni.inventoryapp.ui.screen._screenUtils.CustomListSelectionModeToolbar
 import com.filippochinni.inventoryapp.ui.screen._screenUtils.CustomLoadingIndicator
 import com.filippochinni.inventoryapp.ui.viewmodel.inventoryGroup.InventoryListUIState
 import com.filippochinni.inventoryapp.ui.viewmodel.inventoryGroup.InventoryListViewModel
@@ -102,7 +103,7 @@ fun InventoryListScreen(
 					)
 
 					if (isSelectionMode) {
-						InventoryListSelectionModeToolbar(
+						CustomListSelectionModeToolbar(
 							selectedElements = successUIState.selectedElements,
 							onEditClick = onEditClick,
 							onSwitchActiveClick = viewModel::switchActiveInventory,
@@ -114,52 +115,6 @@ fun InventoryListScreen(
 					}
 				}
 			}
-		}
-	}
-}
-
-@Composable
-fun InventoryListSelectionModeToolbar(
-	selectedElements: Set<Int>,
-	onEditClick: (Int) -> Unit,
-	onSwitchActiveClick: (Int) -> Unit,
-	onDeleteClick: (Set<Int>) -> Unit,
-	innerPadding: PaddingValues,
-	modifier: Modifier = Modifier,
-) {
-	HorizontalFloatingToolbar(
-		expanded = true,
-		modifier = modifier
-			.padding(bottom = innerPadding.calculateBottomPadding() + dimensionResource(R.dimen.padding_small))
-			.shadow(
-				elevation = dimensionResource(R.dimen.elevation_medium),
-				shape = CircleShape
-			)
-	) {
-		IconButton(
-			onClick = { onEditClick(selectedElements.first()) },
-			enabled = selectedElements.size == 1) {
-			Icon(
-				painter = painterResource(R.drawable.icon_edit_fill0),
-				contentDescription = null
-			)
-		}
-		IconButton(
-			onClick = { onSwitchActiveClick(selectedElements.first()) },
-			enabled = selectedElements.size == 1) {
-			Icon(
-				painter = painterResource(R.drawable.icon_checkcircle_fill0),
-				contentDescription = null
-			)
-		}
-		IconButton(
-			onClick = { onDeleteClick(selectedElements) },
-			enabled = true
-		) {
-			Icon(
-				painter = painterResource(R.drawable.icon_delete_fill0),
-				contentDescription = null
-			)
 		}
 	}
 }

@@ -84,7 +84,9 @@ fun AppNavBar(
 				onClick = { onNavItemClick(it.navKey) },
 				icon = {
 					Icon(
-						painter = painterResource(it.icon),
+						painter = painterResource(
+							if (it.navKey == selectedSection) it.iconSelected
+							else it.icon),
 						contentDescription = stringResource(it.routeTitle)
 					)
 				},

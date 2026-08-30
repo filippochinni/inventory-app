@@ -16,9 +16,12 @@ import androidx.navigation3.ui.NavDisplay
 import com.filippochinni.inventoryapp.R
 import com.filippochinni.inventoryapp.ui.AppNavBar
 import com.filippochinni.inventoryapp.ui.AppTopBar
+import com.filippochinni.inventoryapp.ui.screen._screenUtils.notImplementedToast
 import com.filippochinni.inventoryapp.ui.screen.inventoryGroup.InventoryCreateScreen
 import com.filippochinni.inventoryapp.ui.screen.inventoryGroup.InventoryEditScreen
 import com.filippochinni.inventoryapp.ui.screen.inventoryGroup.InventoryMainScreen
+import com.filippochinni.inventoryapp.ui.screen.labelsGroup.LabelCreateScreen
+import com.filippochinni.inventoryapp.ui.screen.labelsGroup.LabelEditScreen
 import com.filippochinni.inventoryapp.ui.screen.labelsGroup.LabelsMainScreen
 import com.filippochinni.inventoryapp.ui.screen.searchGroup.SearchMainScreen
 import com.filippochinni.inventoryapp.ui.screen.settingsGroup.SettingsMainScreen
@@ -47,6 +50,12 @@ data object InventoryCreateRoute : NavKey
 @Serializable
 data class InventoryEditRoute(val inventoryId: Int = 0) : NavKey
 
+@Serializable
+data object LabelCreateRoute : NavKey
+
+@Serializable
+data class LabelEditRoute(val labelId: Int = 0) : NavKey
+
 open class NavRoute(
     val navKey: NavKey,
     @StringRes val routeTitle: Int,
@@ -59,7 +68,8 @@ class NavBarElement(
     @StringRes routeTitle: Int,
     section: NavKey,
     helpDestination: String? = null,
-    @DrawableRes val icon: Int
+    @DrawableRes val icon: Int,
+    @DrawableRes val iconSelected: Int,
 ) : NavRoute(navKey, routeTitle, section, helpDestination)
 
 
@@ -70,20 +80,23 @@ val NAV_BAR_ROUTES: Map<KClass<out NavKey>, NavBarElement> = mapOf(
         R.string.nav_bar__inventory,
         InventoryMainRoute,
         null,
-        R.drawable.icon_item_fill0
+        R.drawable.icon_item_fill0,
+        R.drawable.icon_item_fill1
     ),
     LabelsMainRoute::class to NavBarElement(
         LabelsMainRoute,
         R.string.nav_bar__labels,
         LabelsMainRoute,
         null,
-        R.drawable.icon_label_fill0
+        R.drawable.icon_label_fill0,
+        R.drawable.icon_label_fill1
     ),
     SearchMainRoute::class to NavBarElement(
         SearchMainRoute,
         R.string.nav_bar__search,
         SearchMainRoute,
         null,
+        R.drawable.icon_search,
         R.drawable.icon_search
     ),
     StatisticsMainRoute::class to NavBarElement(
@@ -91,6 +104,7 @@ val NAV_BAR_ROUTES: Map<KClass<out NavKey>, NavBarElement> = mapOf(
         R.string.nav_bar__statistics,
         StatisticsMainRoute,
         null,
+        R.drawable.icon_statistics,
         R.drawable.icon_statistics
     ),
     SettingsMainRoute::class to NavBarElement(
@@ -98,7 +112,8 @@ val NAV_BAR_ROUTES: Map<KClass<out NavKey>, NavBarElement> = mapOf(
         R.string.nav_bar__settings,
         SettingsMainRoute,
         null,
-        R.drawable.icon_profile_fill0
+        R.drawable.icon_profile_fill0,
+        R.drawable.icon_profile_fill1
     ),
 )
 
@@ -114,7 +129,28 @@ val NAV_ROUTES: Map<Any, NavRoute> = NAV_BAR_ROUTES + mapOf(
         R.string.top_bar_nav_title__edit_inventory,
         InventoryMainRoute,
         null,
-    )
+    ),
+
+    LabelCreateRoute::class to NavRoute(
+        LabelCreateRoute,
+        R.string.top_bar_nav_title__create_label,
+        LabelsMainRoute,
+        null,
+    ),
+    LabelEditRoute::class to NavRoute(
+        LabelEditRoute(),
+        R.string.top_bar_nav_title__edit_label,
+        LabelsMainRoute,
+        null,
+    ),
+)
+
+val HIDE_TOP_BAR_ROUTES = listOf(
+    SearchMainRoute::class,
+)
+
+val HIDE_BOTTOM_BAR_ROUTES = emptyList<KClass<out NavKey>>(
+
 )
 
 
@@ -131,13 +167,25 @@ fun AppNavGraph(modifier: Modifier = Modifier) {
     val entryProvider = entryProvider<Any> {
         entry<InventoryMainRoute> { InventoryMainScreen(
             { navigator.navigate(InventoryCreateRoute) },
-            { navigator.navigate(SettingsMainRoute) },
+            { selectedId -> navigator.navigate(SettingsMainRoute) },
             { selectedId -> navigator.navigate(InventoryEditRoute(selectedId)) }
         ) }
-        entry<LabelsMainRoute> { LabelsMainScreen() }
-        entry<SearchMainRoute> { SearchMainScreen() }
-        entry<StatisticsMainRoute> { StatisticsMainScreen() }
-        entry<SettingsMainRoute> { SettingsMainScreen() }
+        entry<LabelsMainRoute> { LabelsMainScreen(
+            { navigator.navigate(LabelCreateRoute) },
+            { selectedId -> navigator.navigate(SettingsMainRoute) },
+            { selectedId -> navigator.navigate(LabelEditRoute(selectedId)) }
+        )
+            notImplementedToast(context)    //TODO: remove after LabelsMainScreen is implemented
+        }
+        entry<SearchMainRoute> { SearchMainScreen()
+            notImplementedToast(context)    //TODO: remove after SearchMainScreen is implemented
+        }
+        entry<StatisticsMainRoute> { StatisticsMainScreen()
+            notImplementedToast(context)    //TODO: remove after StatisticsMainScreen is implemented
+        }
+        entry<SettingsMainRoute> { SettingsMainScreen()
+            notImplementedToast(context)    //TODO: remove after SettingsMainScreen is implemented
+        }
 
         entry<InventoryCreateRoute> { InventoryCreateScreen(
 			onCancelNav = { navigator.goBack() },
@@ -148,27 +196,43 @@ fun AppNavGraph(modifier: Modifier = Modifier) {
 //			onCancelNav = { navigator.goBack() },
 //			onConfirmNav = { navigator.goBack() },
 		) }
+
+        entry<LabelCreateRoute> { LabelCreateScreen(
+            onCancelNav = { navigator.goBack() },
+            onConfirmNav = { navigator.goBack() },
+        ) }
+        entry<LabelEditRoute> { arg -> LabelEditScreen(
+            labelId = arg.labelId,
+//			onCancelNav = { navigator.goBack() },
+//			onConfirmNav = { navigator.goBack() },
+        ) }
     }
 
     fun getTitleFromRoute() = NAV_ROUTES[navigationState.currentRoute::class]?.routeTitle ?: R.string.app_name
     fun getHelpFromRoute() = NAV_ROUTES[navigationState.currentRoute::class]?.helpDestination ?: HELP_LINK_BASE
+    fun shouldShowTopBar() = !HIDE_TOP_BAR_ROUTES.contains(navigationState.currentRoute::class)
+    fun shouldShowBottomBar() = !HIDE_BOTTOM_BAR_ROUTES.contains(navigationState.currentRoute::class)
     Scaffold(
         topBar = {
-            AppTopBar(
-                title = stringResource(getTitleFromRoute()),
-                helpDestination = getHelpFromRoute(),
-                canNavigateBack = navigator.canGoBack(),
-                navigateAction = { navigator.goBack() },
-                modifier = Modifier
-            )
+            if (shouldShowTopBar()) {
+                AppTopBar(
+                    title = stringResource(getTitleFromRoute()),
+                    helpDestination = getHelpFromRoute(),
+                    canNavigateBack = navigator.canGoBack(),
+                    navigateAction = { navigator.goBack() },
+                    modifier = Modifier
+                )
+            }
         },
         bottomBar = {
-            AppNavBar(
-                navBarElements = NAV_BAR_ROUTES.values.toList(),
-                selectedSection = NAV_ROUTES[navigationState.currentRoute::class]?.section ?: InventoryMainRoute,
-                onNavItemClick = { navigator.navigate(it) },
-                modifier = Modifier
-            )
+            if (shouldShowBottomBar()) {
+                AppNavBar(
+                    navBarElements = NAV_BAR_ROUTES.values.toList(),
+                    selectedSection = NAV_ROUTES[navigationState.currentRoute::class]?.section ?: InventoryMainRoute,
+                    onNavItemClick = { navigator.navigate(it) },
+                    modifier = Modifier
+                )
+            }
         }
     ) { innerPadding ->
         NavDisplay(

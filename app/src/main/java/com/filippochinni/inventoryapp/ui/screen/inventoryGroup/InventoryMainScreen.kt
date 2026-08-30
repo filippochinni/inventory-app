@@ -9,7 +9,7 @@ fun InventoryMainScreen(
 	onFABClick: () -> Unit,
 	onElementClick: (Inventory) -> Unit,
 	onEditClick: (Int) -> Unit
-	) {
+) {
 	InventoryListScreen(
 		onFABClick = onFABClick,
 		onElementClick = onElementClick,

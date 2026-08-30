@@ -29,9 +29,9 @@ sealed interface InventoryListUIState {
 @HiltViewModel
 class InventoryListViewModel @Inject constructor() : ViewModel() {
 
-	private val inventoryList: Flow<List<Inventory>> = mockInventoryList(6)    //TODO: useCaseReadInventory
+	private val inventoryList: Flow<List<Inventory>> = mockInventoryList(9)    //TODO: useCaseReadInventory
 
-	private val selectedElements = MutableStateFlow<Set<Int>>(emptySet())
+	private val selectedElements: MutableStateFlow<Set<Int>> = MutableStateFlow(emptySet())
 
 	val uiState: StateFlow<InventoryListUIState> = combine(
 		inventoryList, selectedElements) { inventoryList, selectedElements ->
