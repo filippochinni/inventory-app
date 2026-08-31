@@ -10,8 +10,11 @@
 	<string name="top_bar_nav_title__edit_inventory">Edit Inventory</string>
 	<string name="top_bar_nav_title__create_label">Create Label</string>
 	<string name="top_bar_nav_title__edit_label">Edit Label</string>
+	<string name="top_bar_nav_title__about">About</string>
 	<string name="dialog__color_picker__title">Color Picker</string>
 	<string name="dialog__color_picker__text_field_label_hex">Hex Color</string>
+	<string name="dialog__theme_picker__title">Theme Picker</string>
+	<string name="dialog__language_picker__title">Language Picker</string>
 	<string name="common__entity__inventory">Inventory</string>
 	<string name="common__entity__inventory__plural">Inventories</string>
 	<string name="common__entity__site">Site</string>
@@ -63,4 +66,31 @@
 	<string name="statistics_main_screen__sold__unique_sold">Unique Sold Items</string>
 	<string name="statistics_main_screen__sold__total_profit">Total Profit</string>
 	<string name="statistics_main_screen__sold__avg_profit">Average Profit per Sold Item</string>
+	<string name="settings_main_screen__local_account">Local Account</string>
+	<string name="settings_main_screen__offline_user">Offline User</string>
+	<string name="settings_main_screen__online_user">Online User</string>
+	<string name="settings_main_screen__section_title__general">General</string>
+	<string name="settings_main_screen__section_title__data">Manage Data</string>
+	<string name="settings_main_screen__section_title__cloud_data">Manage Cloud Data</string>
+	<string name="settings_main_screen__section_title__about">About</string>
+	<string name="settings_main_screen__elem__language_title">Language</string>
+	<string name="settings_main_screen__elem__language_subtitle">Change the App language</string>
+	<string name="settings_main_screen__elem__theme_title">Theme</string>
+	<string name="settings_main_screen__elem__theme_subtitle">Toggle between Light and Dark mode</string>
+	<string name="settings_main_screen__elem__export_data_title">Export Data</string>
+	<string name="settings_main_screen__elem__export_data_subtitle">Export your data on your local device</string>
+	<string name="settings_main_screen__elem__import_data_title">Import Data</string>
+	<string name="settings_main_screen__elem__import_data_subtitle">Restore previously exported data</string>
+	<string name="settings_main_screen__elem__save_cloud_title">Save data on Cloud</string>
+	<string name="settings_main_screen__elem__save_cloud_subtitle">Only available if logged in</string>
+	<string name="settings_main_screen__elem__load_cloud_title">Load data from Cloud</string>
+	<string name="settings_main_screen__elem__load_cloud_subtitle">Only available if logged in</string>
+	<string name="settings_main_screen__elem__about_title">About</string>
+	<string name="settings_main_screen__elem__about_subtitle">Learn more about InventoryApp</string>
+	<string name="settings_main_screen__option__theme_light">Light</string>
+	<string name="settings_main_screen__option__theme_dark">Dark</string>
+	<string name="settings_main_screen__option__theme_system">System</string>
+	<string name="settings_main_screen__option__language_english">English</string>
+	<string name="settings_main_screen__option__language_italian">Italian</string>
+
 </resources>

@@ -24,6 +24,7 @@ import com.filippochinni.inventoryapp.ui.screen.labelsGroup.LabelCreateScreen
 import com.filippochinni.inventoryapp.ui.screen.labelsGroup.LabelEditScreen
 import com.filippochinni.inventoryapp.ui.screen.labelsGroup.LabelsMainScreen
 import com.filippochinni.inventoryapp.ui.screen.searchGroup.SearchMainScreen
+import com.filippochinni.inventoryapp.ui.screen.settingsGroup.SettingsAboutScreen
 import com.filippochinni.inventoryapp.ui.screen.settingsGroup.SettingsMainScreen
 import com.filippochinni.inventoryapp.ui.screen.statisticsGroup.StatisticsMainScreen
 import kotlinx.serialization.Serializable
@@ -55,6 +56,9 @@ data object LabelCreateRoute : NavKey
 
 @Serializable
 data class LabelEditRoute(val labelId: Int = 0) : NavKey
+
+@Serializable
+object SettingsAboutRoute : NavKey
 
 open class NavRoute(
     val navKey: NavKey,
@@ -143,10 +147,18 @@ val NAV_ROUTES: Map<Any, NavRoute> = NAV_BAR_ROUTES + mapOf(
         LabelsMainRoute,
         null,
     ),
+    SettingsAboutRoute::class to NavRoute(
+        SettingsAboutRoute,
+        R.string.top_bar_nav_title__about,
+        SettingsMainRoute,
+        null,
+    ),
+
 )
 
 val HIDE_TOP_BAR_ROUTES = listOf(
     SearchMainRoute::class,
+    SettingsMainRoute::class
 )
 
 val HIDE_BOTTOM_BAR_ROUTES = emptyList<KClass<out NavKey>>(
@@ -183,7 +195,9 @@ fun AppNavGraph(modifier: Modifier = Modifier) {
         entry<StatisticsMainRoute> { StatisticsMainScreen()
             notImplementedToast(context)    //TODO: remove after StatisticsMainScreen is implemented
         }
-        entry<SettingsMainRoute> { SettingsMainScreen()
+        entry<SettingsMainRoute> { SettingsMainScreen(
+            { navigator.navigate(SettingsAboutRoute) }
+        )
             notImplementedToast(context)    //TODO: remove after SettingsMainScreen is implemented
         }
 
@@ -206,6 +220,8 @@ fun AppNavGraph(modifier: Modifier = Modifier) {
 //			onCancelNav = { navigator.goBack() },
 //			onConfirmNav = { navigator.goBack() },
         ) }
+
+        entry<SettingsAboutRoute> { SettingsAboutScreen() }
     }
 
     fun getTitleFromRoute() = NAV_ROUTES[navigationState.currentRoute::class]?.routeTitle ?: R.string.app_name

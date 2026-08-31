@@ -9,6 +9,7 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import com.filippochinni.inventoryapp.ui.viewmodel.settingsGroup.ThemeOption
 
 private val lightColorScheme = lightColorScheme(
 	primary = Main_PrimaryLight,
@@ -114,16 +115,20 @@ private val darkColorScheme = darkColorScheme(
 
 @Composable
 fun InventoryAppTheme(
-	darkTheme: Boolean = isSystemInDarkTheme(),
+	themeMode: ThemeOption,
 	dynamicColor: Boolean = false,
 	content: @Composable () -> Unit
 ) {
+	val darkTheme = when (themeMode) {
+		ThemeOption.DARK -> true
+		ThemeOption.LIGHT -> false
+		ThemeOption.SYSTEM -> isSystemInDarkTheme()
+	}
 	val colorScheme = when {
-		dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-			val context = LocalContext.current
-			if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+		dynamicColor && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) -> {
+			if (darkTheme) dynamicDarkColorScheme(LocalContext.current)
+			else dynamicLightColorScheme(LocalContext.current)
 		}
-
 		darkTheme -> darkColorScheme
 		else -> lightColorScheme
 	}

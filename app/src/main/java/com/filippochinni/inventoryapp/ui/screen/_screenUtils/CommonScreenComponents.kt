@@ -506,7 +506,7 @@ fun CustomFilterChipsGroup(
 						)
 					}
 				},
-				contentPadding = PaddingValues(0.dp),
+				contentPadding = PaddingValues(dimensionResource(R.dimen.padding_none)),
 				modifier = Modifier.weight(1f)
 			)
 		}
@@ -571,6 +571,7 @@ fun CustomSectionHeader(
 		text = stringResource(text),
 		style = MaterialTheme.typography.titleMedium,
 		fontWeight = FontWeight.Bold,
+		color = MaterialTheme.colorScheme.primary,
 		modifier = modifier
 			.padding(horizontal = dimensionResource(R.dimen.padding_small))
 	)
