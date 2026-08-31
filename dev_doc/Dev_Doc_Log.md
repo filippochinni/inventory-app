@@ -232,7 +232,7 @@ The full details of the Database Design are in the [Design Document](documents/D
 
 ### Release Deployment Diagram
 
-The Deployment Diagram built during the Requirements phase just represents an abstract idea of how the system will be deployed, but does not give any information to developers and potential clients the real deployment.
+The Deployment Diagram built during the Requirements phase only represents an abstract idea of how the system will be deployed, but does not give any information to developers and potential clients the real deployment.
 
 At the end of the Design phase, decisions about the actual deployment of the system were made, and thus a concrete version of the diagram was created, which includes the actual services and technologies which the system will use.
 
@@ -251,6 +251,16 @@ From the Development phase onwards, the project is managed in an Agile way, impl
 In the case of a single-developer project, other Agile ceremonies (like Sprint Planning, Daily SCRUM, Sprint Review) are not necessary as there is no team to coordinate with and there is no client who decides what features are the most important.
 
 The Product Backlog is available in the [Product Backlog Document](documents/ProductBacklog.md).
+
+### App Icon Design
+
+The Product Icon, that is, the icon of the App, was designed following the best practices of Material Design. It was designed in a (relatively) old-fashion way, giving the icon a 3D effect, making the icon seem to be touchable and "material"; differently from the current trend of flat design.
+
+The Icon was fully designed using Figma and using open-source, publicy available svg resources as a base for the design.
+
+The full details of the App Icon Design are in the [App Icon Document](documents/AppIcon.md).
+
+![InventoryApp Icon](./documents/_res/_icon/ICON_1080.png)
 
 ### Implementation Log
 
