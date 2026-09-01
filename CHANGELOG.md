@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [0.1.0] - 2026-09-01
+
 ### Added
 
 - UI Setup
@@ -14,8 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Codebase Setup
 - External Library Setup
 - Product Backlog Document
+- App Icon
+- Icon Design Document
 
-### [0.1.0-beta]
+### [0.1.0-beta] - 2026-08-17
 
 ### Added
 
@@ -33,7 +38,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [START of the PROJECT]
 - Initial project setup and configuration.
 
-[unreleased]: https://github.com/filippochinni/inventory-app/compare/v0.1.0-beta...HEAD
+
+[unreleased]: https://github.com/filippochinni/inventory-app/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/filippochinni/inventory-app/compare/v0.1.0-beta...v0.1.0
 [0.1.0-beta]: https://github.com/filippochinni/inventory-app/compare/v0.1.0-alpha...v0.1.0-beta
 [0.1.0-alpha]: https://github.com/filippochinni/inventory-app/compare/v0.1.0-prealpha...v0.1.0-alpha
 [0.1.0-prealpha]: https://github.com/filippochinni/inventory-app/releases/tag/v0.1.0-prealpha

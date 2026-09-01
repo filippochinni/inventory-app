@@ -2,6 +2,8 @@
 
 InventoryApp is a stock management (inventory, stock, stocktaking) Android application which keeps track of the location of items and provides multiple features to help find, organize and visualize items.
 
+<div style="text-align: center;"><img src="dev_doc/documents/_res/_icon/ICON_1080.png" alt="InventoryApp Icon" /></div>
+
 ### App Description
 
 InventoryApp is an App specifically targeted to tidiness-addicts.

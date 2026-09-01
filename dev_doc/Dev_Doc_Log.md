@@ -266,6 +266,8 @@ The full details of the App Icon Design are in the [App Icon Document](documents
 
 The first step was to define all the external dependencies of the project, and then prepare the codebase to strictly follow the Software Design and Architecture.
 
+The DataSource, Repository, and ViewModel layers were set up partially to set the initial dependencies of the codebase. The Screen layer, more precisely, the UI of the App, was implemented (not fully) at least on a "visual level", in preparation for the actual implementation of the features.
+
 ## Testing
 
 ## Release

@@ -1,5 +1,7 @@
 <resources>
 	<string name="app_name">InventoryApp</string>
+	<string name="app_author">filippochinni</string>
+	<string name="app_version">Version: 0.1.0</string>
 	<string name="nav_bar__inventory">Inventory</string>
 	<string name="nav_bar__labels">Labels</string>
 	<string name="nav_bar__search">Search</string>
